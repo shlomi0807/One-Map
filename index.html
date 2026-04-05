@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="eng">
 <head>
     <title>One Piece Map</title>
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
+<div id="mySidenav" class="sidenav">
+    <div id="search" class="open">
+        <input id="search-input" type="search" placeholder="search" autocomplete="off">
+        <button class="fa fa-search" title="search"></button>
+        <button id="toggle-search-btn"><i class="fa fa-chevron-left" id="toggle-icon"></i></button>
+        <div id="search-results" class="search-dropdown" style="display: none;"></div>
+    </div>
+    <a href="index.html" id="Map-nav">Map<i class="fa fa-map-o"></i></a>
+    <a href="characters.html" id="characters">characters<img src="images/characters-icon.png" class="characters-icon"></a>
+    <a href="places.html" id="Places">Places<i class="fa fa-map-marker"></i></a>
+    <a href="contact.html" id="contact">Contact us<i class="fa fa-fw fa-envelope"></i></a>
+</div>
+
 
 <div id="map-wrapper">
     <div id="map-container">
         <img src="images/world-map.jpeg" id="map" draggable="false">
-        
-        <div class="marker" id="luffy-marker">
-            <img src="images/LuffyHead.png" alt="Luffy" draggable="false">
-            
-            <div class="info-popup">
-                <h3>מונקי ד. לופי</h3>
-                <p><strong>פרס:</strong> 3,000,000,000 ברי.</p>
-                <p><strong>מיקום:</strong> באי אלבף.</p>
-                <p><strong>סטטוס:</strong> בקרב נגד האלדר נייטס.</p>
-                <p><strong>מצב גופני:</strong> מוכן לקרב!</p>
-            </div>
-        </div>
     </div>
 </div>
 
 <script src="https://unpkg.com/@panzoom/panzoom/dist/panzoom.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="JS/script.js"></script>
+<script src="jS/script.js"></script>
 
 </body>
 </html>

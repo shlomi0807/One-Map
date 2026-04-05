@@ -1,57 +1,265 @@
 // אנחנו משתמשים ב-jQuery כדי לחכות שהדף ייטען
-$(window).on('load', function() {
+$(window).on('load', function () {
     const mapContainer = document.getElementById('map-container');
     const mapWrapper = document.getElementById('map-wrapper');
 
+    // =========================
     // 1. אתחול המפה (Panzoom)
+    // =========================
     const panzoom = Panzoom(mapContainer, {
         maxScale: 2,
         minScale: 0.05,
         contain: 'outside'
     });
 
+    // =========================
     // 2. זום וגרירה
+    // =========================
     mapWrapper.addEventListener('wheel', panzoom.zoomWithWheel);
-    mapWrapper.addEventListener('mousedown', () => mapWrapper.style.cursor = 'grabbing');
-    mapWrapper.addEventListener('mouseup', () => mapWrapper.style.cursor = 'grab');
 
     // מרכוז המפה בהתחלה
-    panzoom.zoom(0.1, { animate: false });
+    panzoom.zoom(0.2, { animate: false })
+
     setTimeout(() => {
         panzoom.pan(0, 0, { animate: false });
     }, 50);
 
-    // ==========================================
-    // קוד ה-jQuery של המרקר וה-Popup
-    // ==========================================
+    let allMapData = []; 
 
-    const $luffyMarker = $('#luffy-marker');
-    const $luffyPopup = $luffyMarker.find('.info-popup');
+    // =========================
+    // יצירת מרקרים (דמויות)
+    // =========================
+    fetch('data/characters.json')
+        .then(response => response.json()) // converts the text to json
+        .then(characters => {
+            characters.forEach(character => {
+                const marker = document.createElement('div');
+                marker.classList.add('marker');
 
-    // כאן אתה מכניס את האחוזים המדויקים שמצאת קודם!
-    $luffyMarker.css({
-        top: '46.6%', // שנה למספר שלך
-        left: '35.7%' // שנה למספר שלך
-    });
+                marker.style.top = character.top + '%';
+                marker.style.left = character.left + '%';
 
-    // פתיחה/סגירה של ה-Popup בלחיצה על המרקר
-    $luffyMarker.on('click', function(event) {
-        event.stopPropagation(); // קריטי: עוצר את הלחיצה מלעבור למפה
+                marker.innerHTML = `
+                    <img src="${character.image}" alt="${character.name}" title="${character.name}">
+                    <div class="info-popup">
+                        <h3>${character.name}</h3>
+                        <strong>Bounty: </strong>${character.bounty}<br>
+                        <strong>Status: </strong>${character.status}<br>
+                        <strong>Condition: </strong>${character.condition}<br>
+                    </div>
+                `;
+
+                marker.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    const popup = marker.querySelector('.info-popup');
+
+                    document.querySelectorAll('.info-popup').forEach(p => {
+                        if (p !== popup) {
+                            p.style.display = 'none';
+                        }
+                    });
+
+                    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+                });
+
+                mapContainer.appendChild(marker);
+
+                character.element = marker; 
+
+            });
+
+            allMapData = [...allMapData, ...characters]; 
         
-        // הפקודה stop(true, true) עוצרת כל אנימציה קודמת ומונעת את ההבהוב!
-        $luffyPopup.stop(true, true).fadeToggle(300);
-    });
+        })
+        .catch(error => console.error('Error loading characters:', error));
 
-    // סגירת ה-Popup בלחיצה בכל מקום אחר במסך
-    $(document).on('click', function(event) {
-        // אנחנו בודקים: האם המקום שלחצו עליו הוא *לא* המרקר של לופי?
-        if (!$(event.target).closest('#luffy-marker').length) {
-            // אם ה-Popup פתוח, תסגור אותו
-            if ($luffyPopup.is(':visible')) {
-                $luffyPopup.fadeOut(300);
-            }
+
+    // =========================
+    // יצירת אזורי איים
+    // =========================
+    fetch('data/islands.json')
+        .then(response => response.json()) // converts the text to json
+        .then(islands => {
+            islands.forEach(island => {
+                const area = document.createElement('div');
+                area.classList.add('island-area');
+
+                area.style.top = island.top + '%';
+                area.style.left = island.left + '%';
+                area.style.width = island.width + 'px';
+                area.style.height = island.height + 'px';
+
+                area.innerHTML = `
+                    <div class="island-popup">
+                        <strong>${island.name}</strong><br>
+                        ${island.description}
+                    </div>
+                `;
+
+                area.addEventListener('click', (event) => {
+                    event.stopPropagation();
+
+                    const popup = area.querySelector('.island-popup');
+
+                    document.querySelectorAll('.island-popup').forEach(p => {
+                        if (p !== popup) {
+                            p.style.display = 'none';
+                        }
+                    });
+
+                    popup.style.display =
+                        popup.style.display === 'block' ? 'none' : 'block';
+                });
+
+                mapContainer.appendChild(area);
+
+                island.element = area;
+
+            });
+
+            allMapData = [...allMapData, ...islands];
+    })
+    .catch(error => console.error('Error loading islands:', error));
+
+     // סגירה בלחיצה מחוץ למרקרים
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.info-popup, .island-popup').forEach(p => {
+            p.style.display = 'none';
+        });
+    });
+    
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+    function jumpToLocation(item) {
+    const targetScale = 2;
+    const mapW = 8072;
+    const mapH = 4109;
+
+    const markerX = (parseFloat(item.left) / 100) * mapW;
+    const markerY = (parseFloat(item.top) / 100) * mapH;
+
+    const wrapperW = mapWrapper.offsetWidth;
+    const wrapperH = mapWrapper.offsetHeight;
+
+    panzoom.zoom(1, { animate: false });
+    panzoom.pan(0, 0, { animate: false });
+
+    setTimeout(() => {
+        panzoom.zoom(targetScale, { animate: false });
+
+        // מרכז המרקר במרכז המסך בדיוק
+        const panX = (wrapperW / 2) - (markerX * targetScale);
+        const panY = (wrapperH / 2) - (markerY * targetScale);
+
+        panzoom.pan(panX, panY, { animate: true });
+    }, 50);
+}
+
+    // ====================================================
+    // חיפוש
+    // ====================================================
+    $('#toggle-search-btn').on('click', function () {
+        $('#search').toggleClass('close');
+        $('#toggle-icon').toggleClass('fa-chevron-left fa-chevron-right');
+        if ($('#toggle-icon').hasClass('fa-chevron-left')) {
+            $('#search .fa-search').show();
+            $('#search-results').show();
+        } else {
+            $('#search .fa-search').hide();
+            $('#search-results').hide();
+        }
+        if ($('#search').hasClass('open')) {
+            $('#search-input').focus();
         }
     });
+
+    $('#search-input').on('input', function () {
+        const inputVal = $(this).val().toLowerCase();
+        const resultsContainer = $('#search-results');
+        resultsContainer.empty();
+
+        if (inputVal === '') {
+            resultsContainer.hide();
+            return;
+        }
+
+        const filteredData = allMapData.filter(item =>
+            item.name.toLowerCase().includes(inputVal)
+        );
+
+        if (filteredData.length === 0) {
+            resultsContainer.append('<a style="color: gray; cursor: default;">No results found</a>');
+        } else {
+            filteredData.forEach(item => {
+                const resultItem = $('<a></a>').text(item.name);
+                resultItem.on('click', function (e) {
+                    e.preventDefault();
+                    $('#search-input').val(item.name);
+                    resultsContainer.hide();
+                    jumpToLocation(item); // *** קורא לפונקציה המתוקנת ***
+                });
+                resultsContainer.append(resultItem);
+            });
+        }
+
+        resultsContainer.show();
+    });
+
+    $(document).on('click', function (event) {
+        if (!$(event.target).closest('#search').length) {
+            $('#search-results').hide();
+        }
+    });
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    /////////////////////////////////////////////////////////
+    // delete at realese
+    ////////////////////////////////////////////////////////
+    
+
+    // temp code for finding panzoom click area
+    document.getElementById('map').addEventListener('click', function(e) {
+    const xPercent = (e.offsetX / this.offsetWidth) * 100;
+    const yPercent = (e.offsetY / this.offsetHeight) * 100;
+    
+    console.log(`--- לחיצה ---`);
+    console.log(`אחוזים: top=${yPercent.toFixed(2)}, left=${xPercent.toFixed(2)}`);
+    console.log(`כל המתודות של panzoom:`, Object.keys(panzoom));
+    console.log(`getPan:`, panzoom.getPan());
+    console.log(`getScale:`, panzoom.getScale());
+    });
+
+
+
+
+
+
+
+
+    // temp code for finding places in map
+    document.getElementById('map').addEventListener('click', function(e) {
+    // e.offsetX ו-e.offsetY נותנים לנו את הפיקסלים המדויקים על התמונה המקורית!
+    const xPercent = (e.offsetX / this.offsetWidth) * 100;
+    const yPercent = (e.offsetY / this.offsetHeight) * 100;
+    
+    // בוא נוסיף קצת דיוק (4 ספרות אחרי הנקודה) כי המפה שלך ענקית
+    const finalX = xPercent.toFixed(2);
+    const finalY = yPercent.toFixed(2);
+    
+    console.log(`top = '${finalY}%';`);
+    console.log(`left = '${finalX}%';`);
+    
+    //alert(`הקואורדינטות למרקר:\ntop: ${finalY}%\nleft: ${finalX}%`);
+    });
+
+
 });
 
 
@@ -65,22 +273,3 @@ $(window).on('load', function() {
 
 
 
-
-
-
-// // temp code for finding places in map
-// // כלי עזר למפתח: חישוב קואורדינטות
-// document.getElementById('map').addEventListener('click', function(e) {
-//     // e.offsetX ו-e.offsetY נותנים לנו את הפיקסלים המדויקים על התמונה המקורית!
-//     const xPercent = (e.offsetX / this.offsetWidth) * 100;
-//     const yPercent = (e.offsetY / this.offsetHeight) * 100;
-    
-//     // בוא נוסיף קצת דיוק (4 ספרות אחרי הנקודה) כי המפה שלך ענקית
-//     const finalX = xPercent.toFixed(2);
-//     const finalY = yPercent.toFixed(2);
-    
-//     console.log(`luffyMarker.style.left = '${finalX}%';`);
-//     console.log(`luffyMarker.style.top = '${finalY}%';`);
-    
-//     alert(`הקואורדינטות למרקר:\nleft: ${finalX}%\ntop: ${finalY}%`);
-// });

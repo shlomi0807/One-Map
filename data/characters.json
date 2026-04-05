@@ -1,0 +1,53 @@
+[
+    {
+        "name": "Monky D. Luffy",
+        "image": "images/LuffyHead.png",
+        "top": 46.6,
+        "left": 35.7,
+        "bounty": "3,000,000,000฿",
+        "status": "fighting the knights of god",
+        "condition": "Strong!"
+    },
+    {
+        "name": "Roronoa Zoro",
+        "image": "images/ZoroHead.png",
+        "top": 46.6,
+        "left": 35.1,
+        "x": -1200,
+        "y": -1023,
+        "bounty": "1,111,000,000฿",
+        "status": "fighting the knights of god",
+        "condition": "Strong!"
+
+    },
+    {
+        "name": "God Usopp",
+        "image": "images/usoppHead.png",
+        "top": 46.6,
+        "left": 34.5,
+        "bounty": "500,000,000฿",
+        "status": "fighting the knights of god",
+        "condition": "Strong!"
+
+    },
+    {
+        "name": "Vinsmoke Sanji",
+        "image": "images/SanjiHead.png",
+        "top": 46.6,
+        "left": 33.9,
+        "bounty": "1,032,000,000฿",
+        "status": "fighting the knights of god",
+        "condition": "Strong!"
+
+    },
+    {
+        "name": "Laboon",
+        "image": "images/LaboonHead.jpg",
+        "top": 50,
+        "left": 56,
+        "bounty": "0฿",
+        "status": "wating the straw hats to come back",
+        "condition": "patient..."
+
+    }
+]

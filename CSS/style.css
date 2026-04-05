@@ -8,6 +8,193 @@ html, body {
     background: black;
 }
 
+
+/*
+.search{
+    --padding: 14px;
+width: max-content;
+display: flex;
+align-items: center;
+padding: var( -- padding);
+border-radius: 28px;
+background:#f6f6f6;
+transition: box-shadow 0.25s;
+}
+
+.search:focus-within{
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.75) ;
+}
+
+#search-input{
+font-size: 16px;
+font-family: 'Lexend', sans-serif;
+color: #333333;
+margin-left: var( -- padding);
+outline: none;
+border: none;
+background: transparent;
+}
+
+#search-input::placeholder,
+.search-icon {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+#search-bar{
+    top: 1.5%;
+    left: 0.3%;
+    position: absolute;    
+    z-index: 30;
+} */
+
+/* nav bar */
+/* הוספנו את החץ כדי שישפיע רק על הטאבים הראשיים ולא על החיפוש */
+#mySidenav > a, #search {
+  position: absolute;
+  left: -100px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 120px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  display: flex;
+  z-index: 50;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+
+#mySidenav i,.characters-icon{
+    right: 0px;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    height: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+/* מעדכנים גם את ההובר באותה צורה */
+#mySidenav > a:hover {
+  left: 0;
+}
+
+#Map-nav {
+  top: 70px;
+  background-color: #04AA6D;
+}
+
+#characters {
+  top: 130px;
+  background-color: #2196F3;
+}
+#characters .characters-icon{
+    width: 23px;         
+    height: 23px;     
+    padding-right: 3px !important;  
+}
+
+#Places {
+  top: 190px;
+  background-color: #f44336;
+}
+
+#contact {
+  top: 250px;
+  background-color: #555
+}
+
+/* search */
+#search{
+    background-color: #ffa200;
+    top: 10px;
+    left: 0;
+    width: 200px;
+    z-index: 100;
+}
+#search.close {
+    left: -180px;
+}
+#search-input{
+    font-family: 'Lexend', sans-serif;
+    color: white;
+    outline: none;
+    border: none;
+    background: transparent;
+    width: 100%;
+    /* caret-color: transparent;*/ /* clear search cursor */
+} 
+#search button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: white;
+    outline: none;
+}
+#toggle-search-btn { /*white triangle */
+    right: 0;
+    background: #444;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 3px;
+}
+#search-input::-webkit-search-cancel-button { /* removing the annoying X mark in search box*/
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+/* qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq */
+
+/* הקונטיינר של התוצאות */
+.search-dropdown {
+    position: absolute;
+    top: 90%; /* יושב בדיוק מתחת לתיבת החיפוש */
+    left: 0;
+    width: 229px; /* בדיוק באותו רוחב של תיבת החיפוש שלך */
+    background-color: #ffa200;
+    border: 1px solid #ffa200;
+    border-radius: 0 0 5px 5px; /* פינות מעוגלות רק למטה */
+    z-index: 100;
+    
+    max-height: 250px; /* מגביל את הגובה */
+    overflow-y: auto; /* מוסיף פס גלילה אם יש יותר מדי תוצאות */
+}
+
+/* הקישורים (התוצאות) בתוך התיבה */
+.search-dropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.search-dropdown a:hover {
+    background-color: #ffc45d;
+}
+
+
+/* qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq */
+
+
+
+
+
+
+
+
+
+
+
+
 /* Wrapper - תופס את כל המסך */
 #map-wrapper {
     width: 100vw;
@@ -15,6 +202,7 @@ html, body {
     overflow: hidden;
     position: relative; /* קריטי כדי שהזום לפי עכבר יעבוד! */
 }
+
 
 /* Container - בגודל המדויק של המפה */
 #map-container {
@@ -69,8 +257,6 @@ html, body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     z-index: 20; /* מוודא שהוא תמיד מעל הכל */
     cursor: default; /* מונע סמן גרירה על הטקסט */
-    text-align: right; /* התאמה לעברית */
-    direction: rtl; /* התאמה לעברית */
 }
 
 /* עיצוב כותרות בתוך ה-Popup */
@@ -79,7 +265,7 @@ html, body {
     color: #ffcc00;
     font-size: 18px;
     border-bottom: 1px solid rgba(255, 204, 0, 0.3);
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
 }
 
 /* עיצוב פסקאות בתוך ה-Popup */
@@ -100,3 +286,34 @@ html, body {
     border-style: solid;
     border-color: #ffcc00 transparent transparent transparent; /* מסגרת זהובה */
 }
+
+.island-area {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+
+}
+
+/* למצב debug – תוכל לראות את האזור */
+.island-area:hover {
+    background: rgba(255, 0, 0, 0.2);
+}
+
+.island-popup {
+    display: none;
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+
+
+
+
+
