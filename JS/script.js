@@ -51,7 +51,15 @@ $(window).on('load', function () {
 
                 marker.addEventListener('click', (event) => {
                     event.stopPropagation();
-                    jumpToLocation(character);
+                    const popup = marker.querySelector('.info-popup');
+
+                    document.querySelectorAll('.info-popup').forEach(p => {
+                        if (p !== popup) {
+                            p.style.display = 'none';
+                        }
+                    });
+
+                    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
                 });
 
                 mapContainer.appendChild(marker);
@@ -125,39 +133,39 @@ $(window).on('load', function () {
 
 
     function jumpToLocation(item) {
-    const targetScale = 2;
+        const targetScale = 2;
 
-    const markerX = (parseFloat(item.left) / 100) * mapContainer.offsetWidth;
-    const markerY = (parseFloat(item.top) / 100) * mapContainer.offsetHeight;
+        const markerX = (parseFloat(item.left) / 100) * mapContainer.offsetWidth;
+        const markerY = (parseFloat(item.top) / 100) * mapContainer.offsetHeight;
 
-    const wrapperW = mapWrapper.offsetWidth;
-    const wrapperH = mapWrapper.offsetHeight;
+        const wrapperW = mapWrapper.offsetWidth;
+        const wrapperH = mapWrapper.offsetHeight;
 
-    // Disable contain so pan is not clamped during the jump
-    panzoom.setOptions({ contain: undefined });
+        // Disable contain so pan is not clamped during the jump
+        panzoom.setOptions({ contain: undefined });
 
-    // Step 1: reset to scale=1 and place marker at viewport center
-    panzoom.zoom(1, { animate: false });
-    panzoom.pan(wrapperW / 2 - markerX, wrapperH / 2 - markerY, { animate: false });
+        // Step 1: reset to scale=1 and place marker at viewport center
+        panzoom.zoom(1, { animate: false });
+        panzoom.pan(wrapperW / 2 - markerX, wrapperH / 2 - markerY, { animate: false });
 
-    setTimeout(() => {
-        // Step 2: zoom to targetScale with viewport center as focal point —
-        // marker is already at viewport center so it stays there
-        panzoom.zoomToPoint(targetScale, { clientX: wrapperW / 2, clientY: wrapperH / 2 });
-
-        // Re-enable contain after the jump completes
         setTimeout(() => {
-            panzoom.setOptions({ contain: 'outside' });
-        }, 100);
+            // Step 2: zoom to targetScale with viewport center as focal point —
+            // marker is already at viewport center so it stays there
+            panzoom.zoomToPoint(targetScale, { clientX: wrapperW / 2, clientY: wrapperH / 2 });
 
-        // Open this item's popup (close all others first)
-        if (item.element) {
-            document.querySelectorAll('.info-popup, .island-popup').forEach(p => p.style.display = 'none');
-            const popup = item.element.querySelector('.info-popup, .island-popup');
-            if (popup) popup.style.display = 'block';
-        }
-    }, 50);
-}
+            // Re-enable contain after the jump completes
+            setTimeout(() => {
+                panzoom.setOptions({ contain: 'outside' });
+            }, 100);
+
+            // Open this item's popup (close all others first)
+            if (item.element) {
+                document.querySelectorAll('.info-popup, .island-popup').forEach(p => p.style.display = 'none');
+                const popup = item.element.querySelector('.info-popup, .island-popup');
+                if (popup) popup.style.display = 'block';
+            }
+        }, 50);
+    }
 
     // ====================================================
     // חיפוש
