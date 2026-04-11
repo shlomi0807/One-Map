@@ -1,4 +1,4 @@
-/* כללי */
+/* general */
 html, body {
     margin: 0;
     padding: 0;
@@ -8,48 +8,10 @@ html, body {
     background: black;
 }
 
-
-/*
-.search{
-    --padding: 14px;
-width: max-content;
-display: flex;
-align-items: center;
-padding: var( -- padding);
-border-radius: 28px;
-background:#f6f6f6;
-transition: box-shadow 0.25s;
-}
-
-.search:focus-within{
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.75) ;
-}
-
-#search-input{
-font-size: 16px;
-font-family: 'Lexend', sans-serif;
-color: #333333;
-margin-left: var( -- padding);
-outline: none;
-border: none;
-background: transparent;
-}
-
-#search-input::placeholder,
-.search-icon {
-    color: rgba(0, 0, 0, 0.7);
-}
-
-#search-bar{
-    top: 1.5%;
-    left: 0.3%;
-    position: absolute;    
-    z-index: 30;
-} */
-
 /* nav bar */
-/* הוספנו את החץ כדי שישפיע רק על הטאבים הראשיים ולא על החיפוש */
-#mySidenav > a, #search {
+
+/* general */
+#mySidenav > a, #search { /* wornt affects a tags that in the search*/
   position: absolute;
   left: -100px;
   transition: 0.3s;
@@ -65,9 +27,8 @@ background: transparent;
   align-items: center;
 }
 
-
+/* icons in side nav */
 #mySidenav i,.characters-icon{
-    right: 0px;
     margin: 0;
     padding: 0;
     width: 30px;
@@ -78,7 +39,7 @@ background: transparent;
     align-items: center;
 }
     
-/* מעדכנים גם את ההובר באותה צורה */
+/* hover affects only a tags, not the search */
 #mySidenav > a:hover {
   left: 0;
 }
@@ -92,7 +53,7 @@ background: transparent;
   top: 130px;
   background-color: #2196F3;
 }
-#characters .characters-icon{
+#characters .characters-icon{ /* adjust characters icon */
     width: 23px;         
     height: 23px;     
     padding-right: 3px !important;  
@@ -126,7 +87,6 @@ background: transparent;
     border: none;
     background: transparent;
     width: 100%;
-    /* caret-color: transparent;*/ /* clear search cursor */
 } 
 #search button {
     background: transparent;
@@ -136,7 +96,7 @@ background: transparent;
     color: white;
     outline: none;
 }
-#toggle-search-btn { /*white triangle */
+#toggle-search-btn { /* white triangle */
     right: 0;
     background: #444;
     border: none;
@@ -145,30 +105,23 @@ background: transparent;
     padding: 8px 12px;
     border-radius: 3px;
 }
-#search-input::-webkit-search-cancel-button { /* removing the annoying X mark in search box*/
+#search-input::-webkit-search-cancel-button { /* removing the annoying X mark in search box */
     -webkit-appearance: none;
     appearance: none;
     display: none;
 }
-
-/* qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq */
-
-/* הקונטיינר של התוצאות */
-.search-dropdown {
+.search-dropdown { /* dropdown results */
     position: absolute;
-    top: 90%; /* יושב בדיוק מתחת לתיבת החיפוש */
+    top: 90%;
     left: 0;
-    width: 229px; /* בדיוק באותו רוחב של תיבת החיפוש שלך */
+    width: 229px; /* adjust to seach width */
     background-color: #ffa200;
     border: 1px solid #ffa200;
-    border-radius: 0 0 5px 5px; /* פינות מעוגלות רק למטה */
+    border-radius: 0 0 5px 5px; /* only bottom corners rounded */
     z-index: 100;
-    
-    max-height: 250px; /* מגביל את הגובה */
-    overflow-y: auto; /* מוסיף פס גלילה אם יש יותר מדי תוצאות */
+    max-height: 250px;
+    overflow-y: auto;
 }
-
-/* הקישורים (התוצאות) בתוך התיבה */
 .search-dropdown a {
     color: black;
     padding: 12px 16px;
@@ -176,40 +129,25 @@ background: transparent;
     display: block;
     cursor: pointer;
 }
-
 .search-dropdown a:hover {
     background-color: #ffc45d;
 }
 
-
-/* qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq */
-
-
-
-
-
-
-
-
-
-
-
-
-/* Wrapper - תופס את כל המסך */
+/* map wrapper catch the whole screen */
 #map-wrapper {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    position: relative; /* קריטי כדי שהזום לפי עכבר יעבוד! */
+    position: relative;
 }
 
 
-/* Container - בגודל המדויק של המפה */
+/* adjust the container to the map size */
 #map-container {
     display: block;
     width: 8072px; 
-    height: 4109px; /* <--- חובה לשנות! כתוב כאן את הגובה המדויק בפיקסלים של תמונת המפה שלך */
-    position: relative; /* <--- זו השורה הקריטית שהייתה חסרה! */
+    height: 4109px; 
+    position: relative;
 }
 
 #map {
@@ -218,48 +156,42 @@ background: transparent;
     display: block;
 }
 
-/* המרקר העוטף */
+/* outside marker */
 .marker {
     position: absolute;
     width: 40px;
     height: 40px;
-    /* מחקנו מפה את ה-overflow: hidden! */
-    /* מחקנו מפה גם את ה-border וה-border-radius, נעביר אותם לתמונה */
     cursor: pointer;
     z-index: 10;
     transform: translate(-50%, -50%); 
 }
 
-/* התמונה של הדמות בתוך המרקר */
+/* img inside the marker */
 .marker > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%; /* העברנו את העיגול לפה */
-    border: 2px solid white; /* העברנו את המסגרת לפה */
+    border-radius: 50%;
+    border: 2px solid white;
 }
 
-/* וודא שה-CSS הזה מתווסף לקובץ שלך */
-
-/* עיצוב כללי של חלון המידע */
+/* pop up window */
 .info-popup {
-    display: none; /* מוסתר כברירת מחדל */
+    display: none;
     position: absolute;
-    bottom: 120%; /* ממקם אותו בדיוק מעל המרקר */
-    left: 50%; /* מתחיל מאמצע המרקר */
-    transform: translateX(-50%); /* מזיז אותו חצי מעצמו שמאלה כדי שיהיה ממורכז */
-    width: 220px; /* רוחב החלון */
-    background-color: rgba(0, 0, 0, 0.85); /* רקע שחור שקוף מעט */
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    background-color: rgba(0, 0, 0, 0.85);
     color: white;
     padding: 15px;
     border-radius: 8px;
-    border: 2px solid #ffcc00; /* מסגרת זהובה (צבע וואן פיס) */
+    border: 2px solid #ffcc00;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    z-index: 20; /* מוודא שהוא תמיד מעל הכל */
-    cursor: default; /* מונע סמן גרירה על הטקסט */
+    z-index: 20;
+    cursor: default;
 }
-
-/* עיצוב כותרות בתוך ה-Popup */
 .info-popup h3 {
     margin: 0 0 10px 0;
     color: #ffcc00;
@@ -267,24 +199,21 @@ background: transparent;
     border-bottom: 1px solid rgba(255, 204, 0, 0.3);
     /* padding-bottom: 5px; */
 }
-
-/* עיצוב פסקאות בתוך ה-Popup */
 .info-popup p {
     margin: 5px 0;
     font-size: 14px;
     line-height: 1.4;
 }
 
-/* בונוס: משולש קטן שמצביע למרקר */
-.info-popup::after {
+.info-popup::after { /* yellow triangle */
     content: "";
     position: absolute;
-    top: 100%; /* מתחת ל-Popup */
+    top: 100%;
     left: 50%;
     margin-left: -10px;
     border-width: 10px;
     border-style: solid;
-    border-color: #ffcc00 transparent transparent transparent; /* מסגרת זהובה */
+    border-color: #ffcc00 transparent transparent transparent;
 }
 
 .island-area {
@@ -293,12 +222,6 @@ background: transparent;
     cursor: pointer;
 
 }
-
-/* למצב debug – תוכל לראות את האזור */
-.island-area:hover {
-    background: rgba(255, 0, 0, 0.2);
-}
-
 .island-popup {
     display: none;
     position: absolute;
@@ -310,6 +233,10 @@ background: transparent;
     border-radius: 6px;
     font-size: 12px;
     white-space: nowrap;
+}
+/* shwing area. DELETE AT RELEASE */
+.island-area:hover {
+    background: rgba(255, 0, 0, 0.2);
 }
 
 
