@@ -176,13 +176,13 @@ html, body {
 }
 
 /* pop up window */
-.info-popup {
+.info-popup, .island-popup {
     display: none;
     position: absolute;
     bottom: 120%;
     left: 50%;
     transform: translateX(-50%);
-    width: 220px;
+    width: 250px;
     background-color: rgba(0, 0, 0, 0.85);
     color: white;
     padding: 15px;
@@ -192,7 +192,7 @@ html, body {
     z-index: 20;
     cursor: default;
 }
-.info-popup h3 {
+.info-popup h3, .island-popup h3 {
     margin: 0 0 10px 0;
     color: #ffcc00;
     font-size: 18px;
@@ -222,7 +222,7 @@ html, body {
     cursor: pointer;
 
 }
-.island-popup {
+/* .island-popup {
     display: none;
     position: absolute;
     top: -70px;
@@ -233,7 +233,7 @@ html, body {
     border-radius: 6px;
     font-size: 12px;
     white-space: nowrap;
-}
+} */
 /* shwing area. DELETE AT RELEASE */
 .island-area:hover {
     background: rgba(255, 0, 0, 0.2);

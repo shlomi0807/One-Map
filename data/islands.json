@@ -1,11 +1,15 @@
 [
     {
-        "name": "Wano",
+        "name": "Wano Country",
         "top": 44,
         "left": 31,
         "width": 100,
         "height": 100,
-        "description": "ארץ הסמוראים"
+        "ruler": "Kouzuki Momonosuke",
+        "arc": "Wano Country Arc",
+        "chapters": "909-1057, 149 chapters",
+        "episodes": "890-894, 897-906, 908-1028 and 1031-1085, 191 episodes",
+        "link": "places.html"
     },
     {
         "name": "Elbaf",
@@ -13,7 +17,11 @@
         "left": 35.75,
         "width": 100,
         "height": 200,
-        "description": "The Warland Kingdom"
+        "ruler": "No Ruler",
+        "arc": "Elbaph Arc",
+        "chapters": "1126-",
+        "episodes": "1156-",
+        "link": "places.html"
     },
     {
         "name": "Dressrosa",
@@ -21,6 +29,10 @@
         "left": 15,
         "width": 60,
         "height": 60,
-        "description": "ממלכה של דופלמינגו"
+        "ruler": "King Riku Doldo III",
+        "arc": "Dressrosa Arc",
+        "chapters": "700-801, 102 chapters",
+        "episodes": "629-746, 118 episodes",
+        "link": "places.html"
     }
 ]

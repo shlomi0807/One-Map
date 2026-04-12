@@ -87,8 +87,11 @@ $(window).on('load', function () {
                 // creats the inner HTML for each island
                 area.innerHTML = `
                     <div class="island-popup">
-                        <strong>${island.name}</strong><br>
-                        ${island.description}
+                        <h3>${island.name}</h3>
+                        <strong>Ruler: </strong>${island.ruler}<br>
+                        <strong>Arc: </strong>${island.arc}<br>
+                        <strong>Chapters: </strong>${island.chapters}<br>
+                        <strong>Infromation: </strong><a style="color: white;" href = ${island.link}>see at places page</a><br>
                     </div>
                 `;
 
@@ -105,7 +108,7 @@ $(window).on('load', function () {
                     });
                     
                     // open and close the current popup
-                    popup.style.display === 'block' ? 'none' : 'block';
+                    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
                 });
 
                 mapContainer.appendChild(area); // adds the marker to the map
@@ -204,13 +207,14 @@ $(window).on('load', function () {
             item.name.toLowerCase().includes(inputVal)
         );
 
-        // of no matches found, show a gray message
+        // if no matches found, show a gray message
         if (filteredData.length === 0) { 
             resultsContainer.append('<a style="color: gray; cursor: default;">No results found</a>');
         } else {
             // create a clickable link for each matching result
             filteredData.forEach(item => {
                 const resultItem = $('<a></a>').text(item.name);
+                
 
                 resultItem.on('click', function (e) {
                     e.preventDefault(); // Prevent default link behavior
