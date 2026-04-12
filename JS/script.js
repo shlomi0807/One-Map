@@ -27,10 +27,12 @@ $(window).on('load', function () {
             characters.forEach(character => {
                 const marker = document.createElement('div');
                 marker.classList.add('marker');
-
+                
+                // set the place of the character in the map
                 marker.style.top = character.top + '%';
                 marker.style.left = character.left + '%';
 
+                // creats the inner HTML for each chatacter
                 marker.innerHTML = `
                     <img src="${character.image}" alt="${character.name}" title="${character.name}">
                     <div class="info-popup">
@@ -41,26 +43,28 @@ $(window).on('load', function () {
                     </div>
                 `;
 
+                // listening to click on the markers in order to open it
                 marker.addEventListener('click', (event) => {
-                    event.stopPropagation();
+                    event.stopPropagation(); // make sure the click activate only the marker
                     const popup = marker.querySelector('.info-popup');
 
+                    // close all other popups
                     document.querySelectorAll('.info-popup').forEach(p => {
                         if (p !== popup) {
                             p.style.display = 'none';
                         }
                     });
 
+                    // open and close the current popup
                     popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
                 });
 
-                mapContainer.appendChild(marker);
-
-                character.element = marker; 
+                mapContainer.appendChild(marker); // adds the marker to the map
+                character.element = marker; // adds the marker created to the character data
 
             });
 
-            allMapData = [...allMapData, ...characters]; 
+            allMapData = [...allMapData, ...characters]; // adds the new data to the arr
         
         })
         .catch(error => console.error('Error loading characters:', error));
@@ -74,11 +78,13 @@ $(window).on('load', function () {
                 const area = document.createElement('div');
                 area.classList.add('island-area');
 
+                // set the place and the size of the island in the map
                 area.style.top = island.top + '%';
                 area.style.left = island.left + '%';
                 area.style.width = island.width + 'px';
                 area.style.height = island.height + 'px';
 
+                // creats the inner HTML for each island
                 area.innerHTML = `
                     <div class="island-popup">
                         <strong>${island.name}</strong><br>
@@ -86,28 +92,28 @@ $(window).on('load', function () {
                     </div>
                 `;
 
+                // listening to click on the markers in order to open it
                 area.addEventListener('click', (event) => {
-                    event.stopPropagation();
-
+                    event.stopPropagation(); // make sure the click activate only the marker
                     const popup = area.querySelector('.island-popup');
 
+                    // close all other popups
                     document.querySelectorAll('.island-popup').forEach(p => {
                         if (p !== popup) {
                             p.style.display = 'none';
                         }
                     });
-
-                    popup.style.display =
-                        popup.style.display === 'block' ? 'none' : 'block';
+                    
+                    // open and close the current popup
+                    popup.style.display === 'block' ? 'none' : 'block';
                 });
 
-                mapContainer.appendChild(area);
-
-                island.element = area;
+                mapContainer.appendChild(area); // adds the marker to the map
+                island.element = area; // adds the marker created to the island data
 
             });
-
-            allMapData = [...allMapData, ...islands];
+            
+            allMapData = [...allMapData, ...islands]; // adds the new data to the arr
     })
     .catch(error => console.error('Error loading islands:', error));
 
@@ -154,57 +160,74 @@ $(window).on('load', function () {
         }, 50);
     }
 
-    // search
+    // search bar behavior (using JQUERY)
     $('#toggle-search-btn').on('click', function () {
+
+        // add/remove close class to slide the search bar in/out
         $('#search').toggleClass('close');
+
+        // swap the arrow icon direction (left - right)
         $('#toggle-icon').toggleClass('fa-chevron-left fa-chevron-right');
+
+        // if the arrow points left show the search icon and results
         if ($('#toggle-icon').hasClass('fa-chevron-left')) {
             $('#search .fa-search').show();
             $('#search-results').show();
         } else {
+            // arrow points right hide everything
             $('#search .fa-search').hide();
             $('#search-results').hide();
         }
+
+        // if search is open focus in the input
         if ($('#search').hasClass('open')) {
             $('#search-input').focus();
         }
     });
 
+    // search results and filtering behvior (using JQUERY)
     $('#search-input').on('input', function () {
+
+        // get what the user type and convert to lowercase
         const inputVal = $(this).val().toLowerCase();
         const resultsContainer = $('#search-results');
-        resultsContainer.empty();
+        resultsContainer.empty(); // clear previous results
 
+        // if the input is empty, hide the dropdown
         if (inputVal === '') {
             resultsContainer.hide();
             return;
         }
 
+        // filter allMapData depending on what the user typed
         const filteredData = allMapData.filter(item =>
             item.name.toLowerCase().includes(inputVal)
         );
 
-        if (filteredData.length === 0) {
+        // of no matches found, show a gray message
+        if (filteredData.length === 0) { 
             resultsContainer.append('<a style="color: gray; cursor: default;">No results found</a>');
         } else {
+            // create a clickable link for each matching result
             filteredData.forEach(item => {
                 const resultItem = $('<a></a>').text(item.name);
+
                 resultItem.on('click', function (e) {
-                    e.preventDefault();
-                    $('#search-input').val(item.name);
-                    resultsContainer.hide();
-                    jumpToLocation(item);
+                    e.preventDefault(); // Prevent default link behavior
+
+                    $('#search-input').val(item.name); // fill the input with the selected name
+                    resultsContainer.hide(); // hide the dropdown
+                    jumpToLocation(item); // go to the location on the map (calls the function)
                 });
-                resultsContainer.append(resultItem);
+                resultsContainer.append(resultItem); // add the link to the dropdown
             });
         }
-
-        resultsContainer.show();
+        resultsContainer.show(); // show the dropdown with results
     });
 
     $(document).on('click', function (event) {
         if (!$(event.target).closest('#search').length) {
-            $('#search-results').hide();
+            $('#search-results').hide(); // close search results when clicking outside the search bar
         }
     });
 
