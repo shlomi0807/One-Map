@@ -49,7 +49,7 @@ $(window).on('load', function () {
                     const popup = marker.querySelector('.info-popup');
 
                     // close all other popups
-                    document.querySelectorAll('.info-popup').forEach(p => {
+                    document.querySelectorAll('.island-popup, .info-popup').forEach(p => {
                         if (p !== popup) {
                             p.style.display = 'none';
                         }
@@ -101,7 +101,7 @@ $(window).on('load', function () {
                     const popup = area.querySelector('.island-popup');
 
                     // close all other popups
-                    document.querySelectorAll('.island-popup').forEach(p => {
+                    document.querySelectorAll('.island-popup, .info-popup').forEach(p => {
                         if (p !== popup) {
                             p.style.display = 'none';
                         }
@@ -120,11 +120,19 @@ $(window).on('load', function () {
     })
     .catch(error => console.error('Error loading islands:', error));
 
-     // close when clicking outside the window
+    // close when clicking outside the window
     document.addEventListener('click', () => {
         document.querySelectorAll('.info-popup, .island-popup').forEach(p => {
             p.style.display = 'none';
         });
+    });
+
+    // changin the scale of the pop-ups to match the current zoom
+    mapContainer.addEventListener('panzoomchange', (event) => {
+    const inverseScale = 1 / event.detail.scale; // reads current zoom and inverts it
+
+    // pass the value to the CSS 
+    document.documentElement.style.setProperty('--popup-scale', inverseScale);
     });
 
     // function to move to the location of a specific character / island
@@ -236,6 +244,7 @@ $(window).on('load', function () {
     });
 
 
+    
 
 /////////////////////////////////////////////////////////////////////////////////////
 
@@ -254,9 +263,9 @@ $(window).on('load', function () {
     console.log(`--- click ---`);
     console.log(`top=${yPercent.toFixed(2)}`);
     console.log(`left=${xPercent.toFixed(2)}`);
-    //console.log(`panzoom methods:`, Object.keys(panzoom));
+    console.log(`panzoom methods:`, Object.keys(panzoom));
     console.log(`getPan:`, panzoom.getPan());
-    console.log(`getScale:`, panzoom.getScale());
+    console.log(`current zoom:`, panzoom.getScale());
     });
 
 

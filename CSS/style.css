@@ -179,9 +179,11 @@ html, body {
 .info-popup, .island-popup {
     display: none;
     position: absolute;
-    bottom: 120%;
+    bottom: 100%;
     left: 50%;
-    transform: translateX(-50%);
+    margin-bottom: calc(15px * var(--popup-scale, 1));
+    transform: translateX(-50%) scale(var(--popup-scale, 1));
+    transform-origin: bottom center;
     width: 250px;
     background-color: rgba(0, 0, 0, 0.85);
     color: white;
@@ -199,13 +201,13 @@ html, body {
     border-bottom: 1px solid rgba(255, 204, 0, 0.3);
     /* padding-bottom: 5px; */
 }
-.info-popup p {
+.info-popup p, .island-popup p {
     margin: 5px 0;
     font-size: 14px;
     line-height: 1.4;
 }
 
-.info-popup::after { /* yellow triangle */
+.info-popup::after, .island-popup::after { /* yellow triangle */
     content: "";
     position: absolute;
     top: 100%;
@@ -234,6 +236,7 @@ html, body {
     font-size: 12px;
     white-space: nowrap;
 } */
+ 
 /* shwing area. DELETE AT RELEASE */
 .island-area:hover {
     background: rgba(255, 0, 0, 0.2);
