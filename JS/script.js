@@ -20,57 +20,180 @@ $(window).on('load', function () {
 
     let allMapData = []; // arry to stor all character/island data from memory
 
-    // characters markers
+    /* ----- characters markers ----- */
+
     fetch('data/characters.json')
         .then(response => response.json()) // converts the text to json
         .then(characters => {
+
+            const CLUSTER_DISTANCE = 0.6; // the min distance that cluster markers together 
+            let clusters = [];
+
+            // sorts to groups
             characters.forEach(character => {
-                const marker = document.createElement('div');
-                marker.classList.add('marker');
-                
-                // set the place of the character in the map
-                marker.style.top = character.top + '%';
-                marker.style.left = character.left + '%';
+                let placed = false;
+                for (let cluster of clusters) {
+                    let dx = parseFloat(character.left) - cluster.centerLeft;
+                    let dy = parseFloat(character.top) - cluster.centerTop;
+                    let distance = Math.sqrt((dx * dx) + (dy * dy));
 
-                // creats the inner HTML for each chatacter
-                marker.innerHTML = `
-                    <img src="${character.image}" alt="${character.name}" title="${character.name}">
-                    <div class="info-popup">
-                        <h3>${character.name}</h3>
-                        <strong>Bounty: </strong>${character.bounty}<br>
-                        <strong>Status: </strong>${character.status}<br>
-                        <strong>Condition: </strong>${character.condition}<br>
-                    </div>
-                `;
-
-                // listening to click on the markers in order to open it
-                marker.addEventListener('click', (event) => {
-                    event.stopPropagation(); // make sure the click activate only the marker
-                    const popup = marker.querySelector('.info-popup');
-
-                    // close all other popups
-                    document.querySelectorAll('.island-popup, .info-popup').forEach(p => {
-                        if (p !== popup) {
-                            p.style.display = 'none';
-                        }
+                    if (distance <= CLUSTER_DISTANCE) {
+                        cluster.members.push(character);
+                        placed = true;
+                        break;
+                    }
+                }
+                if (!placed) {
+                    clusters.push({
+                        centerLeft: parseFloat(character.left),
+                        centerTop: parseFloat(character.top),
+                        members: [character]
                     });
-
-                    // open and close the current popup
-                    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
-                });
-
-                mapContainer.appendChild(marker); // adds the marker to the map
-                character.element = marker; // adds the marker created to the character data
-
+                }
             });
 
-            allMapData = [...allMapData, ...characters]; // adds the new data to the arr
+            // draws on the map
+            clusters.forEach(cluster => {
+                if (cluster.members.length === 1) {
+
+                    createSingleCharacterMarker(cluster.members[0]); 
+                } else {
+                    // group elements
+                    const clusterMarker = document.createElement('div');
+                    clusterMarker.classList.add('cluster-marker');
+                    clusterMarker.style.left = cluster.centerLeft + '%';
+                    clusterMarker.style.top = cluster.centerTop + '%';
+                    
+                    // Separate element for number or image
+                    const display = document.createElement('div');
+                    display.classList.add('cluster-display');
+                    display.dataset.count = cluster.members.length;
+                    display.innerHTML = cluster.members.length;
+                    clusterMarker.appendChild(display);
+
+                    // group pup up element
+                    const activePopup = document.createElement('div');
+                    activePopup.classList.add('info-popup'); 
+                    activePopup.style.display = 'none';
+                    clusterMarker.appendChild(activePopup);
+
+                    //adding menu elenemt
+                    const menu = document.createElement('div');
+                    menu.classList.add('cluster-menu');
+                    
+                    cluster.members.forEach(character => {
+                        const item = document.createElement('div');
+                        
+                        item.innerHTML = `
+                            <img src="${character.image}" alt="${character.name}" class="cluster-menu-img">
+                            <span>${character.name}</span>
+                        `;
+                        
+                        // function to crate the pop up of a character
+                        const openCharacterLogic = () => {
+                            menu.style.display = 'none';
+                            display.innerHTML = `<img src="${character.image}" class="cluster-active-img">`;
+                            activePopup.innerHTML = `
+                                <h3>${character.name}</h3>
+                                <strong>Bounty: </strong>${character.bounty}<br>
+                                <strong>Status: </strong>${character.status}<br>
+                                <strong>Condition: </strong>${character.condition}<br>
+                            `;
+                            document.querySelectorAll('.info-popup, .island-popup, .cluster-menu').forEach(p => p.style.display = 'none');
+                            activePopup.style.display = 'block';
+                        };
+
+                        // listen to a click on the cluster marker
+                        item.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            openCharacterLogic();
+                        });
+
+                        character.triggerPopup = openCharacterLogic; // saves parameters to search the character
+                        character.element = clusterMarker; // adds the cluster marker created to the character data
+                        menu.appendChild(item);
+                    });
+
+                    clusterMarker.appendChild(menu);
+
+                    // open and close the menu by clicking on the pop up
+                    clusterMarker.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        display.innerHTML = cluster.members.length; // returns the display to the number
+
+                        document.querySelectorAll('.info-popup, .island-popup, .cluster-menu').forEach(p => {
+                            if (p !== menu && p !== activePopup) p.style.display = 'none';
+                        });
+
+                        // returns the number of a cluster if it was open
+                        document.querySelectorAll('.cluster-display').forEach(display => {
+                            if (display.dataset.count) {
+                                display.innerHTML = display.dataset.count; // take the number from the memory
+                            }
+                        });
+                        
+                        // close popup when the menu opens
+                        activePopup.style.display = 'none';
+                        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+                    });
+
+                    mapContainer.appendChild(clusterMarker);
+                }
+            });     
+
+        allMapData = [...allMapData, ...characters]; // adds the new data to the arr
         
-        })
-        .catch(error => console.error('Error loading characters:', error));
+    })
+    .catch(error => console.error('Error loading characters:', error));  
+        
+    // function to create a single character marker 
+    function createSingleCharacterMarker(character) {
+        //characters.forEach(character => {
+            const marker = document.createElement('div');
+            marker.classList.add('marker');
+            
+            // set the place of the character in the map
+            marker.style.top = character.top + '%';
+            marker.style.left = character.left + '%';
 
+            // creats the inner HTML for each chatacter
+            marker.innerHTML = `
+                <img src="${character.image}" alt="${character.name}" title="${character.name}">
+                <div class="info-popup">
+                    <h3>${character.name}</h3>
+                    <strong>Bounty: </strong>${character.bounty}<br>
+                    <strong>Status: </strong>${character.status}<br>
+                    <strong>Condition: </strong>${character.condition}<br>
+                </div>
+            `;
 
-    // island markers
+            const openCharacterLogic = () => {
+                const popup = marker.querySelector('.info-popup');
+                // close all other popups
+                document.querySelectorAll('.island-popup, .info-popup, .cluster-menu').forEach(p => {
+                    if (p !== popup) 
+                        p.style.display = 'none';
+                });
+
+                // open and close the current popup
+                popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+            };
+
+            // listen to a click on the marker
+            marker.addEventListener('click', (event) => {
+                event.stopPropagation(); // make sure the click activate only the marker
+                openCharacterLogic();
+            });
+
+            // saves parameters to search the character
+            character.triggerPopup = openCharacterLogic;
+
+            mapContainer.appendChild(marker); // adds the marker to the map
+            character.element = marker; // adds the marker created to the character data
+    }
+
+    /* ----- island markers ----- */
+
     fetch('data/islands.json')
         .then(response => response.json()) // converts the text to json
         .then(islands => {
@@ -101,12 +224,19 @@ $(window).on('load', function () {
                     const popup = area.querySelector('.island-popup');
 
                     // close all other popups
-                    document.querySelectorAll('.island-popup, .info-popup').forEach(p => {
+                    document.querySelectorAll('.island-popup, .info-popup, .cluster-menu').forEach(p => {
                         if (p !== popup) {
                             p.style.display = 'none';
                         }
                     });
-                    
+
+                    // returns the number of a cluster if it was open
+                    document.querySelectorAll('.cluster-display').forEach(display => {
+                        if (display.dataset.count) {
+                            display.innerHTML = display.dataset.count; // take the number from the memory
+                        }
+                    });
+                            
                     // open and close the current popup
                     popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
                 });
@@ -116,15 +246,23 @@ $(window).on('load', function () {
 
             });
             
-            allMapData = [...allMapData, ...islands]; // adds the new data to the arr
+        allMapData = [...allMapData, ...islands]; // adds the new data to the arr
     })
     .catch(error => console.error('Error loading islands:', error));
 
     // close when clicking outside the window
     document.addEventListener('click', () => {
-        document.querySelectorAll('.info-popup, .island-popup').forEach(p => {
+        document.querySelectorAll('.info-popup, .island-popup, .cluster-menu').forEach(p => {
             p.style.display = 'none';
         });
+
+        // returns the number of a cluster if it was open
+        document.querySelectorAll('.cluster-display').forEach(display => {
+            if (display.dataset.count) {
+                display.innerHTML = display.dataset.count; // take the number from the memory
+            }
+        });
+
     });
 
     // changin the scale of the pop-ups to match the current zoom
@@ -230,6 +368,13 @@ $(window).on('load', function () {
                     $('#search-input').val(item.name); // fill the input with the selected name
                     resultsContainer.hide(); // hide the dropdown
                     jumpToLocation(item); // go to the location on the map (calls the function)
+
+                    // check if the item have a trigger value
+                    setTimeout(() => { // wating to finish the jump 
+                        if (item.triggerPopup) {
+                            item.triggerPopup();
+                        }
+                    }, 50);
                 });
                 resultsContainer.append(resultItem); // add the link to the dropdown
             });

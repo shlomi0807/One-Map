@@ -8,7 +8,7 @@ html, body {
     background: black;
 }
 
-/* nav bar */
+/* ----- nav bar ----- */
 
 /* general */
 #mySidenav > a, #search { /* wornt affects a tags that in the search*/
@@ -133,6 +133,8 @@ html, body {
     background-color: #ffc45d;
 }
 
+/* ----- map ----- */
+
 /* map wrapper catch the whole screen */
 #map-wrapper {
     width: 100vw;
@@ -156,7 +158,7 @@ html, body {
     display: block;
 }
 
-/* outside marker */
+/* ----- characters marker ------ */
 .marker {
     position: absolute;
     width: 40px;
@@ -172,10 +174,10 @@ html, body {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid #ffcc00;
 }
 
-/* pop up window */
+/* ----- pop up window ----- */
 .info-popup, .island-popup {
     display: none;
     position: absolute;
@@ -237,9 +239,87 @@ html, body {
     white-space: nowrap;
 } */
  
-/* shwing area. DELETE AT RELEASE */
+/* showing area. DELETE AT RELEASE */
 .island-area:hover {
     background: rgba(255, 0, 0, 0.2);
+}
+
+
+
+/* ----- cluster-markers ----- */
+
+.cluster-marker {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.85); 
+    color: white; 
+    font-weight: bold;
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid #ffcc00; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+    z-index: 15;
+    transform: translate(-50%, -50%);
+}
+
+.cluster-display {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cluster-active-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.cluster-menu {
+    display: none;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.85); 
+    border: 2px solid #ffcc00; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+    padding: 5px 0;
+    min-width: 200px;
+    z-index: 30;
+}
+
+/*characters lines in menu*/
+.cluster-menu div {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 204, 0, 0.3); 
+    font-size: 14px; 
+}
+.cluster-menu div:hover {
+    background-color: rgba(255, 204, 0, 0.15); 
+}
+.cluster-menu div:last-child {
+    border-bottom: none;
+}
+/*image in menu*/
+.cluster-menu-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #ffcc00;
 }
 
 

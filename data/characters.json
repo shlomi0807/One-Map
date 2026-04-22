@@ -3,7 +3,7 @@
         "name": "Monky D. Luffy",
         "image": "images/LuffyHead.png",
         "top": 46.6,
-        "left": 35.7,
+        "left": 35.5,
         "bounty": "3,000,000,000฿",
         "status": "fighting the knights of god",
         "condition": "Strong!"
@@ -22,7 +22,7 @@
         "name": "God Usopp",
         "image": "images/UsoppHead.png",
         "top": 46.6,
-        "left": 34.5,
+        "left": 35.5,
         "bounty": "500,000,000฿",
         "status": "fighting the knights of god",
         "condition": "Strong!"
@@ -32,7 +32,7 @@
         "name": "Vinsmoke Sanji",
         "image": "images/SanjiHead.png",
         "top": 46.6,
-        "left": 33.9,
+        "left": 33.5,
         "bounty": "1,032,000,000฿",
         "status": "fighting the knights of god",
         "condition": "Strong!"
