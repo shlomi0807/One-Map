@@ -6,7 +6,10 @@
         "left": 35.5,
         "bounty": "3,000,000,000฿",
         "status": "fighting the knights of god",
-        "condition": "Strong!"
+        "condition": "Strong!",
+        "last_seen_manga": "Chapter 1180 (latest)",
+        "last_seen_anime": "Episode 1158 (latest)",
+        "link": "characters.html"
     },
     {
         "name": "Roronoa Zoro",
@@ -15,8 +18,10 @@
         "left": 35.5,
         "bounty": "1,111,000,000฿",
         "status": "fighting the knights of god",
-        "condition": "Strong!"
-
+        "condition": "Strong!",
+        "last_seen_manga": "Chapter 1180 (latest)",
+        "last_seen_anime": "Episode 1158 (latest)",
+        "link": "characters.html"
     },
     {
         "name": "God Usopp",
@@ -25,18 +30,22 @@
         "left": 35.5,
         "bounty": "500,000,000฿",
         "status": "fighting the knights of god",
-        "condition": "Strong!"
-
+        "condition": "Strong!",
+        "last_seen_manga": "Chapter 1180 (latest)",
+        "last_seen_anime": "Episode 1158 (latest)",
+        "link": "characters.html"
     },
     {
         "name": "Vinsmoke Sanji",
         "image": "images/SanjiHead.png",
         "top": 46.6,
-        "left": 33.5,
+        "left": 35.5,
         "bounty": "1,032,000,000฿",
         "status": "fighting the knights of god",
-        "condition": "Strong!"
-
+        "condition": "Strong!",
+        "last_seen_manga": "Chapter 1180 (latest)",
+        "last_seen_anime": "Episode 1158 (latest)",
+        "link": "characters.html"
     },
     {
         "name": "Nami <3",
@@ -45,8 +54,10 @@
         "left": 35.5,
         "bounty": "366,000,000฿",
         "status": "fighting the knights of god",
-        "condition": "Strong!"
-
+        "condition": "Strong!",
+        "last_seen_manga": "Chapter 1180 (latest)",
+        "last_seen_anime": "Episode 1158 (latest)",
+        "link": "characters.html"
     },
     {
         "name": "Nico Robin",
@@ -55,8 +66,10 @@
         "left": 35.5,
         "bounty": "930,000,000฿",
         "status": "fighting the knights of god",
-        "condition": "Strong!"
-
+        "condition": "Strong!",
+        "last_seen_manga": "Chapter 1180 (latest)",
+        "last_seen_anime": "Episode 1158 (latest)",
+        "link": "characters.html"
     },
     {
         "name": "Tony Tony Chopper",
@@ -65,8 +78,58 @@
         "left": 35.5,
         "bounty": "1,000฿",
         "status": "fighting the knights of god",
-        "condition": "Strong!"
-
+        "condition": "Strong!",
+        "last_seen_manga": "Chapter 1180 (latest)",
+        "last_seen_anime": "Episode 1158 (latest)",
+        "link": "characters.html"
+    },
+    {
+        "name": "Franky",
+        "image": "images/FrankyHead.png",
+        "top": 46.6,
+        "left": 35.5,
+        "bounty": "394,000,000฿",
+        "status": "fighting the knights of god",
+        "condition": "Strong!",
+        "last_seen_manga": "Chapter 1180 (latest)",
+        "last_seen_anime": "Episode 1158 (latest)",
+        "link": "characters.html"
+    },
+    {
+        "name": "Brook",
+        "image": "images/BrookHead.jpg",
+        "top": 46.6,
+        "left": 35.5,
+        "bounty": "383,000,000฿",
+        "status": "fighting the knights of god",
+        "condition": "Strong!",
+        "last_seen_manga": "Chapter 1180 (latest)",
+        "last_seen_anime": "Episode 1158 (latest)",
+        "link": "characters.html"
+    },
+    {
+        "name": "Jinbe",
+        "image": "images/JinbeHead.png",
+        "top": 46.6,
+        "left": 35.5,
+        "bounty": "1,100,000,000฿",
+        "status": "fighting the knights of god",
+        "condition": "Strong!",
+        "last_seen_manga": "Chapter 1180 (latest)",
+        "last_seen_anime": "Episode 1158 (latest)",
+        "link": "characters.html"
+    },
+    {
+        "name": "Kouzuki Momonosuke",
+        "image": "images/MomoHead.png",
+        "top": 43.7,
+        "left": 31.15,
+        "bounty": "Not wanted",
+        "status": "Ruling Wano Country as the new Shogun",
+        "condition": "Healthy",
+        "last_seen_manga": "Chapter 1057",
+        "last_seen_anime": "Episode 1085",
+        "link": "characters.html"
     },
     {
         "name": "Laboon",
@@ -75,7 +138,9 @@
         "left": 56,
         "bounty": "0฿",
         "status": "wating the straw hats to come back",
-        "condition": "patient..."
-
+        "condition": "patient...",
+        "last_seen_manga": "Chapter 102",
+        "last_seen_anime": "Episode 63",
+        "link": "characters.html"
     }
 ]

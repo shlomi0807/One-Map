@@ -105,12 +105,14 @@ $(window).on('load', function () {
                         // function to crate the pop up of a character
                         const openCharacterLogic = () => {
                             menu.style.display = 'none';
-                            display.innerHTML = `<img src="${character.image}" class="cluster-active-img">`;
+                            display.innerHTML = `<img src="${character.image}" title="${character.name}" class="cluster-active-img">`;
                             activePopup.innerHTML = `
                                 <h3>${character.name}</h3>
                                 <strong>Bounty: </strong>${character.bounty}<br>
                                 <strong>Status: </strong>${character.status}<br>
                                 <strong>Condition: </strong>${character.condition}<br>
+                                <strong>Last Seen: </strong>${character.last_seen_manga}<br>
+                                <strong>Infromation: </strong><a style="color: white;" href = ${character.link}>see at character page</a><br>
                             `;
                             document.querySelectorAll('.info-popup, .island-popup, .cluster-menu').forEach(p => p.style.display = 'none');
                             activePopup.style.display = 'block';
@@ -182,6 +184,8 @@ $(window).on('load', function () {
                     <strong>Bounty: </strong>${character.bounty}<br>
                     <strong>Status: </strong>${character.status}<br>
                     <strong>Condition: </strong>${character.condition}<br>
+                    <strong>Last Seen: </strong>${character.last_seen_manga}<br>
+                    <strong>Infromation: </strong><a style="color: white;" href = ${character.link}>see at character page</a><br>
                 </div>
             `;
 
@@ -223,8 +227,13 @@ $(window).on('load', function () {
         .then(islands => {
             islands.forEach(island => {
                 const area = document.createElement('div');
+                
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                
+                //להחזיר / למחוק כדי להעלים / לשים
                 area.classList.add('island-area');
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////               
                 // set the place and the size of the island in the map
                 area.style.top = island.top + '%';
                 area.style.left = island.left + '%';
