@@ -12,11 +12,24 @@ $(window).on('load', function () {
 
     mapWrapper.addEventListener('wheel', panzoom.zoomWithWheel); // allwos for scrolling with mouse wheel
 
-    panzoom.zoom(0.05, { animate: false }) // initialization map zoom
+    const mapImg = document.getElementById('map');
 
-    setTimeout(() => {
-        panzoom.pan(0, 0, { animate: false }); // initialization map in the center
-    }, 50);
+    const initMap = () => {
+        requestAnimationFrame(() => { // ensure that the DOM is fully ready before setting the pan
+            panzoom.zoom(0.2, { animate: false });
+            requestAnimationFrame(() => {
+                panzoom.pan(0, 0, { animate: false });
+            });
+        });
+    };
+
+    // init immediately if image is already loaded (from cache)
+    if (mapImg.complete) {
+        initMap();
+    } 
+    else { // otherwise wait for it to load
+        mapImg.addEventListener('load', initMap);
+    }
 
     let allMapData = []; // arry to stor all character/island data from memory
 
@@ -116,6 +129,11 @@ $(window).on('load', function () {
 
                     clusterMarker.appendChild(menu);
 
+                    // disable panzoom scroll when hovering over the menu
+                    menu.addEventListener('wheel', (e) => {
+                        e.stopPropagation();
+                    }, { passive: false });
+
                     // open and close the menu by clicking on the pop up
                     clusterMarker.addEventListener('click', (e) => {
                         e.stopPropagation();
@@ -169,6 +187,12 @@ $(window).on('load', function () {
 
             const openCharacterLogic = () => {
                 const popup = marker.querySelector('.info-popup');
+                
+                // resets the clusters
+                document.querySelectorAll('.cluster-display').forEach(d => {
+                if (d.dataset.count) d.innerHTML = d.dataset.count;
+                });
+                
                 // close all other popups
                 document.querySelectorAll('.island-popup, .info-popup, .cluster-menu').forEach(p => {
                     if (p !== popup) 
