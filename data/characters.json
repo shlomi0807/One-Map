@@ -132,11 +132,47 @@
         "link": "characters.html"
     },
     {
+        "name": "Nojiko",
+        "image": "images/NojikoHead.png",
+        "top": 21.7,
+        "left": 62.6,
+        "bounty": "Not wanted",
+        "status": "Managing her mikan farm",
+        "condition": "Healthy",
+        "last_seen_manga": "Chapter 1115",
+        "last_seen_anime": "Episode 1149",
+        "link": "characters.html"
+    },
+    {
+        "name": "Zeff",
+        "image": "images/ZeffHead.png",
+        "top": 31.25,
+        "left": 70,
+        "bounty": "Not wanted",
+        "status": "Running the Baratie restaurant",
+        "condition": "Physically stable",
+        "last_seen_manga": "Chapter 1120",
+        "last_seen_anime": "Episode 1152",
+        "link": "characters.html"
+    },
+    {
+        "name": "Makino",
+        "image": "images/MakinoHead.png",
+        "top": 19.1,
+        "left": 88,
+        "bounty": "Not wanted",
+        "status": "Managing the Partys Bar",
+        "condition": "Healthy",
+        "last_seen_manga": "Chapter 1089",
+        "last_seen_anime": "Episode 1123",
+        "link": "characters.html"
+    },
+    {
         "name": "Laboon",
         "image": "images/LaboonHead.jpg",
         "top": 50,
         "left": 56,
-        "bounty": "0฿",
+        "bounty": "Not wanted",
         "status": "wating the straw hats to come back",
         "condition": "patient...",
         "last_seen_manga": "Chapter 102",
