@@ -1,0 +1,169 @@
+/* dark overlay behind the sidenav */
+#page-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 45; /* above map, below sidenav */
+}
+
+/* ----- sidenav ----- */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.3s;
+}
+
+
+.sidenav a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #818181;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+
+/* close button */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 40px;
+    padding: 0 10px; 
+    cursor: pointer;
+    color: #818181;
+}
+
+.sidenav .closebtn:hover {
+    color: #111111;
+}
+
+.sidenav a:hover {
+    color: #111111;
+}
+
+/* icons in side nav */
+.sidenav i, .characters-icon {
+    width: 25px;
+    text-align: center;
+}
+
+.characters-icon { /* adjust characters icon */
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+/* open button */
+#open-nav-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 40;
+    background: white;
+    color: black;
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 20px; 
+}
+
+#open-nav-btn:hover {
+    background: #bcbcbc;
+
+}
+
+/* ----- search bar ----- */
+
+#search {
+    position: fixed;
+    top: 15px;
+    left: 65px; 
+    height: 40px; 
+    width: 250px;
+    background: white;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    border-radius: 50px;
+    gap: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    overflow: visible;
+}
+
+#search-input {
+    color: black;
+    font-family: 'Lexend', sans-serif;
+    border: none; 
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 15px;
+}
+
+#search-input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+#search button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: black;
+    font-size: 16px;
+}
+
+#search-input::-webkit-search-cancel-button { /* removing the annoying X mark in search box */
+    display: none;
+}
+
+#search.active {
+    border-radius: 20px 20px 0 0;
+}
+
+.search-dropdown { /* dropdown results */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 0 0 20px 20px; 
+    z-index: 50;
+    max-height: 250px;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    margin-top: 0; 
+}   
+
+.search-dropdown a {
+    color: black;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.search-dropdown a:hover {
+    background: rgba(27, 27, 27, 0.15);
+}

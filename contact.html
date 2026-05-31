@@ -5,28 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>contact us</title>
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/global.css">
     <link rel="stylesheet" href="CSS/contact.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
 
+    <span style="font-size:30px;cursor:pointer" id="open-nav-btn">&#9776;</span>
+
     <div id="mySidenav" class="sidenav">
-        <div id="search">
-            <input id="search-input" type="search" placeholder="search">
-            <span class="fa fa-search"></span>
-        </div>
-        <a href="index.html" id="Map-nav">Map<i class="fa fa-map-o"></i></a>
-        <a href="characters.html" id="characters">characters<img src="images/characters-icon.png"
-                class="characters-icon"></a>
-        <a href="places.html" id="Places">Places<i class="fa fa-map-marker"></i></a>
-        <a href="contact.html" id="contact">Contact us<i class="fa fa-fw fa-envelope"></i></a>
+        <a href="javascript:void(0)" class="closebtn" id="close-nav-btn">&times;</a>
+        <a href="index.html" id="Map-nav"><i class="fa fa-map-o"></i> Map</a>
+        <a href="characters.html" id="characters"><img src="images/characters-icon.png" class="characters-icon"> characters</a>
+        <a href="places.html" id="Places"><i class="fa fa-map-marker"></i> Places</a>
+        <a href="contact.html" id="contact"><i class="fa fa-fw fa-envelope"></i> Contact us</a>
     </div>
 
 
     <div class="container">
-  <form action="">
+    <form action="">
 
     <label for="fname">Name</label>
     <input type="text" id="fname" name="fullname" placeholder="Your name..">
@@ -36,7 +34,8 @@
                 oninvalid="this.setCustomValidity('Please enter a valid email address')" oninput="this.setCustomValidity('')">
 
     <label for="reqtype">Type of Request *</label>
-    <select id="reqtype" name="reqtype" required>
+    <select id="reqtype" name="reqtype" required
+    oninvalid="this.setCustomValidity('Please choose a type of request')" oninput="this.setCustomValidity('')">
         <option value="" disabled selected >choose one..</option>
         <option value="bugrep">Bug Report</option>
         <option value="suggestion">Feature Suggestion</option>
@@ -49,7 +48,8 @@
     <label for="subject">Subject *<div id="char-warning" class="warning-text">You have reached the maximum character limit.</div>
     </label>
     
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" maxlength="1000" required></textarea>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" maxlength="1000" required
+    oninvalid="this.setCustomValidity('Please enter a subject')" oninput="this.setCustomValidity('')"></textarea>
      
     <input type="submit" value="Submit">
    
@@ -64,8 +64,10 @@
     </div>
 </div>
 
-<script src="JS/contact.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="JS/contact.js"></script>
+<script src="JS/global.js"></script>
 </body>
 
 </html>

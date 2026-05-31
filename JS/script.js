@@ -342,29 +342,12 @@ $(window).on('load', function () {
         }, 50);
     }
 
-    // search bar behavior (using JQUERY)
-    $('#toggle-search-btn').on('click', function () {
-
-        // add/remove close class to slide the search bar in/out
-        $('#search').toggleClass('close');
-
-        // swap the arrow icon direction (left - right)
-        $('#toggle-icon').toggleClass('fa-chevron-left fa-chevron-right');
-
-        // if the arrow points left show the search icon and results
-        if ($('#toggle-icon').hasClass('fa-chevron-left')) {
-            $('#search .fa-search').show();
-            $('#search-results').show();
-        } else {
-            // arrow points right hide everything
-            $('#search .fa-search').hide();
-            $('#search-results').hide();
-        }
-
-        // if search is open focus in the input
-        if ($('#search').hasClass('open')) {
-            $('#search-input').focus();
-        }
+    // search bar cursor remove (using JQUERY)
+    $('#map-wrapper').on('click', function(event) {
+    // check if there was a ckick outside the search bar
+    if (!$(event.target).closest('#search').length) {
+        $('#search-input').blur();
+    }
     });
 
     // search results and filtering behvior (using JQUERY)
@@ -373,11 +356,13 @@ $(window).on('load', function () {
         // get what the user type and convert to lowercase
         const inputVal = $(this).val().toLowerCase();
         const resultsContainer = $('#search-results');
+        const searchBar = $('#search'); ////////////////////////////////////////////
         resultsContainer.empty(); // clear previous results
 
         // if the input is empty, hide the dropdown
         if (inputVal === '') {
             resultsContainer.hide();
+            searchBar.removeClass('active'); ///////////////////////////////
             return;
         }
 
@@ -400,6 +385,7 @@ $(window).on('load', function () {
 
                     $('#search-input').val(item.name); // fill the input with the selected name
                     resultsContainer.hide(); // hide the dropdown
+                    searchBar.removeClass('active'); ////////////////////////////////////////////////////
                     jumpToLocation(item); // go to the location on the map (calls the function)
 
                     // check if the item have a trigger value
@@ -413,11 +399,13 @@ $(window).on('load', function () {
             });
         }
         resultsContainer.show(); // show the dropdown with results
+        searchBar.addClass('active'); ///////////////////////////////////////////////
     });
 
     $(document).on('click', function (event) {
         if (!$(event.target).closest('#search').length) {
             $('#search-results').hide(); // close search results when clicking outside the search bar
+            $('#search').removeClass('active'); //////////////////////////////////
         }
     });
 

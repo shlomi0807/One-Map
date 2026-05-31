@@ -3,22 +3,28 @@
 <head>
     <title>One Piece Map</title>
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/global.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
-<div id="mySidenav" class="sidenav">
-    <div id="search" class="open">
+    <div id="search">
         <input id="search-input" type="search" placeholder="search" autocomplete="off">
         <button class="fa fa-search" title="search"></button>
-        <button id="toggle-search-btn"><i class="fa fa-chevron-left" id="toggle-icon"></i></button>
         <div id="search-results" class="search-dropdown" style="display: none;"></div>
     </div>
-    <a href="index.html" id="Map-nav">Map<i class="fa fa-map-o"></i></a>
-    <a href="characters.html" id="characters">characters<img src="images/characters-icon.png" class="characters-icon"></a>
-    <a href="Places.html" id="Places">Places<i class="fa fa-map-marker"></i></a>
-    <a href="contact.html" id="contact">Contact us<i class="fa fa-fw fa-envelope"></i></a>
-</div>
+    
+    <div id="page-overlay"></div>
+    <span style="font-size:30px;cursor:pointer" id="open-nav-btn">&#9776;</span>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" id="close-nav-btn">&times;</a>
+        <a href="index.html" id="Map-nav"><i class="fa fa-map-o"></i> Map</a>
+        <a href="characters.html" id="characters"><img src="images/characters-icon.png" class="characters-icon"> characters</a>
+        <a href="places.html" id="Places"><i class="fa fa-map-marker"></i> Places</a>
+        <a href="contact.html" id="contact"><i class="fa fa-fw fa-envelope"></i> Contact us</a>
+    </div>
+
 
 
 <div id="map-wrapper">
@@ -30,6 +36,7 @@
 <script src="https://unpkg.com/@panzoom/panzoom/dist/panzoom.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="JS/script.js"></script>
+<script src="JS/global.js"></script>
 
 </body>
 </html>
