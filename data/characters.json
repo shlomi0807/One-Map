@@ -132,6 +132,30 @@
         "link": "characters.html"
     },
     {
+        "name": "Carrot",
+        "image": "images/CarrotHead.png",
+        "top": 53.7,
+        "left": 25.5,
+        "bounty": "Not wanted",
+        "status": "Ruler of the Mink Tribe",
+        "condition": "Healthy",
+        "last_seen_manga": "Chapter 1115",
+        "last_seen_anime": "Episode 1149",
+        "link": "characters.html"
+    },
+    {
+        "name": "Perona",
+        "image": "images/PeronaHead.png",
+        "top": 51.8,
+        "left": 37.3,
+        "bounty": "Not wanted",
+        "status": "Attempting to rescue Moria from Blackbeard’s prison.",
+        "condition": "Healthy",
+        "last_seen_manga": "Chapter 1080",
+        "last_seen_anime": "Episode 1114",
+        "link": "characters.html"    
+    },
+    {
         "name": "Nojiko",
         "image": "images/NojikoHead.png",
         "top": 21.7,

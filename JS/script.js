@@ -16,7 +16,7 @@ $(window).on('load', function () {
 
     const initMap = () => {
         requestAnimationFrame(() => { // ensure that the DOM is fully ready before setting the pan
-            panzoom.zoom(0.2, { animate: false });
+            panzoom.zoom(0.15, { animate: false });
             requestAnimationFrame(() => {
                 panzoom.pan(0, 0, { animate: false });
             });
