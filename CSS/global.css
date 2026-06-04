@@ -1,10 +1,36 @@
-/* dark overlay behind the sidenav */
+
+/* ----- general ----- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    background-image: url('../images/OP-backgruond.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* background is fixed while scrolling*/
+}
+
+/* bluring the background image*/
+body::before {
+    content: ''; /* crates an empty element */
+    position: fixed;
+    inset: 0; /* stretches across the screen */
+    background: inherit;
+    filter: blur(5px);
+    z-index: 0;
+}
+
+
+/* Darkening the page when the navbar is open */
 #page-overlay {
     display: none;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 45; /* above map, below sidenav */
+    z-index: 45;
 }
 
 /* ----- sidenav ----- */
@@ -89,6 +115,15 @@
 #open-nav-btn:hover {
     background: #bcbcbc;
 
+}
+
+/* dark overlay behind the sidenav */
+#page-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 45; /* above map, below sidenav */
 }
 
 /* ----- search bar ----- */

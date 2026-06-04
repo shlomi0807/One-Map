@@ -1,11 +1,14 @@
-/* general */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
+
+/* ----- general ----- */
+html.map-page, body.map-page {
+    /* disable scrolling */
     height: 100%;
-    overflow: hidden;
-    background: black;
+    overflow: hidden; 
+
+    /* centers the map */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ----- map ----- */
@@ -76,6 +79,8 @@ html, body {
     color: #ffcc00;
     font-size: 18px;
     border-bottom: 1px solid rgba(255, 204, 0, 0.3);
+                /* --------for windows-------   --------for mac--------------   --backup--  */
+    font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', 'Marker Felt', sans-serif;
     /* padding-bottom: 5px; */
 }
 .info-popup p, .island-popup p {

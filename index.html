@@ -1,12 +1,34 @@
+
+
+<!-- 
+ 
+changes for deployment #29:
+    * contact page: convert page to using with bootstrap (Just to tick the boxes for the instructions.)
+    * places: add places page (JS and CSS files. and added contact in existing HTML)
+    * CSS: fixed some of styling and merges similar styles to the global css file
+    * added page-overlay to rest of pages
+
+    * probably did more thing that i can't remember
+    note for myself: never say "i'll commit when i finish this thing"
+-->
+
+
+
+
+
+
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en" class="map-page">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Piece Map</title>
+    <link rel="icon" href="images/one-map-logo.png">
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/global.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body class="map-page">
 
     <div id="search">
         <input id="search-input" type="search" placeholder="search" autocomplete="off">

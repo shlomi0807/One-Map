@@ -4,18 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>places</title>
-    <style>
-        h1,h3{display: flex; justify-content: center; color: rgb(255, 0, 0);}
-        .sad-face{
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
-        }
-    </style>
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" href="images/one-map-logo.png">
     <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/places.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -25,7 +16,8 @@
         <button class="fa fa-search" title="search"></button>
         <div id="search-results" class="search-dropdown" style="display: none;"></div>
     </div>
-
+    
+    <div id="page-overlay"></div>
     <span style="font-size:30px;cursor:pointer" id="open-nav-btn">&#9776;</span>
 
     <div id="mySidenav" class="sidenav">
@@ -35,11 +27,11 @@
         <a href="places.html" id="Places"><i class="fa fa-map-marker"></i> Places</a>
         <a href="contact.html" id="contact"><i class="fa fa-fw fa-envelope"></i> Contact us</a>
     </div>
-    <h1>Coming soon...</h1>
-    <img src="images/luffy-ugly-face.png" class="sad-face">
-    
+
+    <div id="cards-grid" class="cards-grid"></div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="JS/global.js"></script>
+<script src="JS/places.js"></script>
 </body>
 </html>

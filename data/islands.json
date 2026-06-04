@@ -1,6 +1,7 @@
 [
     {
         "name": "Elbaf",
+        "image": "images/Elbaf.png",
         "top": 46.5,
         "left": 35.75,
         "width": 100,
@@ -13,6 +14,7 @@
     },
     {
         "name": "Egghead",
+        "image": "images/Egghead.png",
         "top": 50.4,
         "left": 31.9,
         "width": 100,
@@ -25,6 +27,7 @@
     },
     {
         "name": "Wano Country",
+        "image": "images/Wano.png",
         "top": 44,
         "left": 31,
         "width": 150,
@@ -37,6 +40,7 @@
     },
     {
         "name": "Zou",
+        "image": "images/Zou.png",
         "top": 53.6,
         "left": 25.6,
         "width": 150,
@@ -49,6 +53,7 @@
     },
     {
         "name": "Whole Cake Island",
+        "image": "images/WholeCake.png",
         "top": 47.4,
         "left": 22.6,
         "width": 150,
@@ -61,6 +66,7 @@
     },
     {
         "name": "Dressrosa",
+        "image": "images/Dressrosa.png",
         "top": 52,
         "left": 15,
         "width": 60,
@@ -73,6 +79,7 @@
     },
     {
         "name": "Punk Hazard",
+        "image": "images/PunkHazard.png",
         "top": 54.6,
         "left": 6.4,
         "width": 150,

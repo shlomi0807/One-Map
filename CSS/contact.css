@@ -1,37 +1,9 @@
 
-/* ----- General ----- */
-
-body {
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    background-image: url('../images/OP-backgruond.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* keeps the image static while scrolling */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* ----- blur background image ----- */
-
-body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: inherit;
-    filter: blur(5px);
-    z-index: 0;
-}
-
-/* ----- form ----- */
-
 /* enter animation of the form */
 @keyframes floatDown {
     0% {
         opacity: 0;
-        transform: translateY(-20px); /* srart at 20px from above*/
+        transform: translateY(-20px);
     }
     100% {
         opacity: 1;
@@ -39,20 +11,18 @@ body::before {
     }
 }
 
-/* container */
-.container {
+/* contact-card */
+.contact-card {
     position: relative;
     z-index: 1;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    width: 90%;
-    max-width: 600px; /* won't grow beyond this on large screens */
+    padding: 30px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     animation: floatDown 0.8s ease-out forwards;
 }
 
-/* request type */
+/* request type colors */
 #reqtype {
     color: gray;
 }
@@ -65,54 +35,45 @@ body::before {
     color: black;
 }
 
-/* inputs */
-input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
+/* overriding bootstrap default inputs style */
+.custom-input {
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
     resize: none;
 }
 
-input[type=submit] {
+.custom-submit {
     background-color: #04AA6D;
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
+    font-weight: bold;
 }
 
-input[type=submit]:hover {
+.custom-submit:hover {
     background-color: #45a049;
-
+    color: white;
 }
 
-/* ----- warning massege ----- */
-
+/* ----- warning message ----- */
 .warning-text {
     color: #d9534f;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     display: none;
-    margin-left: 8px; 
 }
 
 /* ----- popup window ----- */
-
 .popup-overlay {
     opacity: 0;
-    visibility: hidden; /* hidden as default */
+    visibility: hidden;
     display: flex;
-    transition: opacity 0.4s ease, visibility 0.4s ease; /* fading in when being visible*/
+    transition: opacity 0.4s ease, visibility 0.4s ease;
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    z-index: 100;
+    z-index: 1000;
     justify-content: center;
     align-items: center;
 }
@@ -131,7 +92,7 @@ input[type=submit]:hover {
     max-width: 400px;
     width: 80%;
     transform: translateY(-20px);
-    transition: transform 0.4s ease; /* floating up */
+    transition: transform 0.4s ease;
 }
 
 .popup-overlay.show .popup-content {
@@ -141,46 +102,4 @@ input[type=submit]:hover {
 .popup-content h2 {
     color: #04AA6D;
     margin-top: 0;
-}
-
-#close-popup {
-    background-color: #04AA6D;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 20px;
-    font-size: 16px;
-    width: 100%;
-}
-
-#close-popup:hover {
-    background-color: #45a049;
-}
-
-/* responsive */
-
-/* tablet */
-@media (max-width: 768px) {
-    .container {
-        width: 70%;
-        padding: 15px;
-    }
-}
-
-/* mobile */
-@media (max-width: 480px) {
-    .container {
-        width: 60%;
-        padding: 20px;
-    }
-
-    input[type=text], select, textarea {
-        padding: 20px;
-    }
-
-    input[type=submit] {
-        padding: 20px;
-    }
 }
