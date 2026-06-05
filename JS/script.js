@@ -161,7 +161,7 @@ $(window).on('load', function () {
                 }
             });     
 
-        allMapData = [...allMapData, ...characters]; // adds the new data to the arr
+        allMapData.push(...characters); // pushes the new data into the arr
         
     })
     .catch(error => console.error('Error loading characters:', error));  
@@ -279,7 +279,7 @@ $(window).on('load', function () {
 
             });
             
-        allMapData = [...allMapData, ...islands]; // adds the new data to the arr
+        allMapData.push(...islands); // pushes the new data into the arr
     })
     .catch(error => console.error('Error loading islands:', error));
 
@@ -342,70 +342,23 @@ $(window).on('load', function () {
         }, 50);
     }
 
-    // search bar cursor remove (using JQUERY)
-    $('#map-wrapper').on('click', function(event) {
-    // check if there was a ckick outside the search bar
-    if (!$(event.target).closest('#search').length) {
-        $('#search-input').blur();
-    }
-    });
 
-    // search results and filtering behvior (using JQUERY)
-    $('#search-input').on('input', function () {
-
-        // get what the user type and convert to lowercase
-        const inputVal = $(this).val().toLowerCase();
-        const resultsContainer = $('#search-results');
-        const searchBar = $('#search'); ////////////////////////////////////////////
-        resultsContainer.empty(); // clear previous results
-
-        // if the input is empty, hide the dropdown
-        if (inputVal === '') {
-            resultsContainer.hide();
-            searchBar.removeClass('active'); ///////////////////////////////
-            return;
+// calls the generic search func
+initSearch(allMapData, function(selectedItem) {
+    jumpToLocation(selectedItem);
+    
+    setTimeout(() => { 
+        if (selectedItem.triggerPopup) {
+            selectedItem.triggerPopup();
         }
+    }, 50);
+});
 
-        // filter allMapData depending on what the user typed
-        const filteredData = allMapData.filter(item =>
-            item.name.toLowerCase().includes(inputVal)
-        );
-
-        // if no matches found, show a gray message
-        if (filteredData.length === 0) { 
-            resultsContainer.append('<a style="color: gray; cursor: default;">No results found</a>');
-        } else {
-            // create a clickable link for each matching result
-            filteredData.forEach(item => {
-                const resultItem = $('<a></a>').text(item.name);
-                
-
-                resultItem.on('click', function (e) {
-                    e.preventDefault(); // Prevent default link behavior
-
-                    $('#search-input').val(item.name); // fill the input with the selected name
-                    resultsContainer.hide(); // hide the dropdown
-                    searchBar.removeClass('active'); ////////////////////////////////////////////////////
-                    jumpToLocation(item); // go to the location on the map (calls the function)
-
-                    // check if the item have a trigger value
-                    setTimeout(() => { // wating to finish the jump 
-                        if (item.triggerPopup) {
-                            item.triggerPopup();
-                        }
-                    }, 50);
-                });
-                resultsContainer.append(resultItem); // add the link to the dropdown
-            });
-        }
-        resultsContainer.show(); // show the dropdown with results
-        searchBar.addClass('active'); ///////////////////////////////////////////////
-    });
 
     $(document).on('click', function (event) {
         if (!$(event.target).closest('#search').length) {
             $('#search-results').hide(); // close search results when clicking outside the search bar
-            $('#search').removeClass('active'); //////////////////////////////////
+            $('#search').removeClass('active'); 
         }
     });
 

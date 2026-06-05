@@ -106,18 +106,7 @@ html.map-page, body.map-page {
     cursor: pointer;
 
 }
-/* .island-popup {
-    display: none;
-    position: absolute;
-    top: -70px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 12px;
-    white-space: nowrap;
-} */
+
  
 /* showing area. DELETE AT RELEASE */
 .island-area:hover {

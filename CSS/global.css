@@ -153,6 +153,7 @@ body::before {
     background: transparent;
     width: 100%;
     font-size: 15px;
+    padding-right: 30px;
 }
 
 #search-input::placeholder {
@@ -201,4 +202,20 @@ body::before {
 
 .search-dropdown a:hover {
     background: rgba(27, 27, 27, 0.15);
+}
+
+
+/* X butn inside search box */
+#clear-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #818181;
+    font-size: 18px;
+    padding: 0 5px;
+    transition: 0.2s;
+}
+
+#clear-btn:hover {
+    color: #444444;
 }

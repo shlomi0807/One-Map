@@ -1,22 +1,4 @@
 
-
-<!-- 
- 
-changes for deployment #29:
-    * contact page: convert page to using with bootstrap (Just to tick the boxes for the instructions.)
-    * places: add places page (JS and CSS files. and added contact in existing HTML)
-    * CSS: fixed some of styling and merges similar styles to the global css file
-    * added page-overlay to rest of pages
-
-    * probably did more thing that i can't remember
-    note for myself: never say "i'll commit when i finish this thing"
--->
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en" class="map-page">
 <head>
@@ -32,7 +14,7 @@ changes for deployment #29:
 
     <div id="search">
         <input id="search-input" type="search" placeholder="search" autocomplete="off">
-        <button class="fa fa-search" title="search"></button>
+        <button id="clear-btn" class="fa fa-times" title="Clear search" style="display: none;"></button>
         <div id="search-results" class="search-dropdown" style="display: none;"></div>
     </div>
     

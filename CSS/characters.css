@@ -1,0 +1,120 @@
+/* grid style */
+.cards-grid {
+  display: flex;
+  flex-direction: column; /* sets character in one column */
+  gap: 30px; 
+  padding: 40px; 
+  max-width: 1000px; 
+  margin: 40px auto; 
+  position: relative; 
+  z-index: 1; 
+
+  /* adds a white transparented background */
+  background-color: rgba(255, 255, 255, 0.7); 
+  border-radius: 15px; 
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); 
+  border: 1px solid rgba(255, 255, 255, 0.5); 
+}
+
+/* design for each row */
+.character-row {
+  display: flex;
+  flex-direction: row; /* stting the image on left and text on right */
+  align-items: center;
+  background-color: #ffffff; /* adds a white background (not transparente)*/
+  border-radius: 10px;
+  padding: 10px;
+  gap: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* right side */
+.character-info {
+  flex-grow: 1;
+  color: #333;
+  text-align: left;
+}
+
+.character-info h2 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.character-info p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 5px 0;
+}
+
+/* ----- flip card ----- */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  max-width: 150px;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1; 
+  perspective: 1000px; 
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.flip-card:hover {
+  transform: scale(1.03);
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d; 
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden; 
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+}
+
+.flip-card-back {
+  background-color: #2c3e50; 
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* adaptation to small screens */
+@media (max-width: 768px) {
+  .character-row {
+    flex-direction: column; /* set image up and text down*/
+    text-align: center;
+  }
+  
+  .character-info {
+    text-align: center; 
+  }
+  
+  .flip-card {
+    max-width: 300px; /* card a bit bigger on small screens*/
+  }
+}
