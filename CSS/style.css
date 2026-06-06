@@ -42,7 +42,7 @@ html.map-page, body.map-page {
     width: 40px;
     height: 40px;
     cursor: pointer;
-    z-index: 10;
+    z-index: 15;
     transform: translate(-50%, -50%); 
 }
 
@@ -89,22 +89,14 @@ html.map-page, body.map-page {
     line-height: 1.4;
 }
 
-.info-popup::after, .island-popup::after { /* yellow triangle */
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -10px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: #ffcc00 transparent transparent transparent;
-}
-
 .island-area {
     position: absolute;
     transform: translate(-50%, -50%);
     cursor: pointer;
-
+    z-index: 5;
+}
+.island-popup {
+    z-index: 25;
 }
 
  
@@ -113,6 +105,32 @@ html.map-page, body.map-page {
     background: rgba(255, 0, 0, 0.2);
 }
 
+
+/* fixing popups that are close to edges of the map */
+.align-left {
+    transform: translateX(0) scale(var(--popup-scale, 1)) !important;
+    transform-origin: bottom left !important;
+}
+
+.align-right {
+    transform: translateX(-100%) scale(var(--popup-scale, 1)) !important;
+    transform-origin: bottom right !important;
+}
+
+.align-top {
+    bottom: auto !important;
+    top: 100% !important;
+    margin-bottom: 0 !important;
+    margin-top: calc(15px * var(--popup-scale, 1)) !important;
+    transform-origin: top center !important;
+}
+
+.align-top.align-left {
+    transform-origin: top left !important;
+}
+.align-top.align-right {
+    transform-origin: top right !important;
+}
 
 
 /* ----- cluster-markers ----- */
@@ -130,7 +148,7 @@ html.map-page, body.map-page {
     cursor: pointer;
     border: 2px solid #ffcc00; 
     box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
-    z-index: 15;
+    z-index: 10;
     transform: translate(-50%, -50%);
 }
 
@@ -191,6 +209,8 @@ html.map-page, body.map-page {
     object-fit: cover;
     border: 1px solid #ffcc00;
 }
+
+
 
 
 

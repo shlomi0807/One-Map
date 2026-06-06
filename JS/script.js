@@ -104,6 +104,13 @@ $(window).on('load', function () {
                         
                         // function to crate the pop up of a character
                         const openCharacterLogic = () => {
+                            // reset all markers z-index
+                            document.querySelectorAll('.marker, .cluster-marker, .island-area').forEach(el => {
+                                el.style.zIndex = '';
+                            });
+                            
+                            // raise this cluster above all others
+                            clusterMarker.style.zIndex = 100;
                             menu.style.display = 'none';
                             display.innerHTML = `<img src="${character.image}" title="${character.name}" class="cluster-active-img">`;
                             activePopup.innerHTML = `
@@ -112,7 +119,6 @@ $(window).on('load', function () {
                                 <strong>Status: </strong>${character.status}<br>
                                 <strong>Condition: </strong>${character.condition}<br>
                                 <strong>Last Seen: </strong>${character.last_seen_manga}<br>
-                                <strong>Infromation: </strong><a style="color: white;" href = ${character.link}>see at character page</a><br>
                             `;
                             document.querySelectorAll('.info-popup, .island-popup, .cluster-menu').forEach(p => p.style.display = 'none');
                             activePopup.style.display = 'block';
@@ -168,10 +174,20 @@ $(window).on('load', function () {
         
     // function to create a single character marker 
     function createSingleCharacterMarker(character) {
-        //characters.forEach(character => {
             const marker = document.createElement('div');
             marker.classList.add('marker');
             
+            // ads a code name to fix popups that close to edges of the map
+            let popupFix = "";
+
+            if (character.left < 5) {
+                popupFix = "align-left";
+            } else if (character.left > 95) {
+                popupFix = "align-right";
+            } else if (character.top < 10) {
+                popupFix = "align-top";
+            }
+
             // set the place of the character in the map
             marker.style.top = character.top + '%';
             marker.style.left = character.left + '%';
@@ -179,19 +195,26 @@ $(window).on('load', function () {
             // creats the inner HTML for each chatacter
             marker.innerHTML = `
                 <img src="${character.image}" alt="${character.name}" title="${character.name}">
-                <div class="info-popup">
+                <div class="info-popup ${popupFix}">
                     <h3>${character.name}</h3>
                     <strong>Bounty: </strong>${character.bounty}<br>
                     <strong>Status: </strong>${character.status}<br>
                     <strong>Condition: </strong>${character.condition}<br>
                     <strong>Last Seen: </strong>${character.last_seen_manga}<br>
-                    <strong>Infromation: </strong><a style="color: white;" href = ${character.link}>see at character page</a><br>
                 </div>
             `;
 
             const openCharacterLogic = () => {
                 const popup = marker.querySelector('.info-popup');
+
+                // reset all markers z-index
+                document.querySelectorAll('.marker, .cluster-marker, .island-area').forEach(el => {
+                    el.style.zIndex = '';
+                });
                 
+                // raise this marker above all others
+                marker.style.zIndex = 100;
+                            
                 // resets the clusters
                 document.querySelectorAll('.cluster-display').forEach(d => {
                 if (d.dataset.count) d.innerHTML = d.dataset.count;
@@ -240,14 +263,24 @@ $(window).on('load', function () {
                 area.style.width = island.width + 'px';
                 area.style.height = island.height + 'px';
 
+                // ads a code name to fix popups that close to edges of the map
+                let popupFix = "";
+
+                if (parseFloat(island.left) < 5) {
+                    popupFix = "align-left";
+                } else if (parseFloat(island.left) > 95) {
+                    popupFix = "align-right";
+                } else if (parseFloat(island.top) < 10) {
+                    popupFix = "align-top";
+                }
+
                 // creats the inner HTML for each island
                 area.innerHTML = `
-                    <div class="island-popup">
+                    <div class="island-popup ${popupFix}">
                         <h3>${island.name}</h3>
                         <strong>Ruler: </strong>${island.ruler}<br>
                         <strong>Arc: </strong>${island.arc}<br>
                         <strong>Chapters: </strong>${island.chapters}<br>
-                        <strong>Infromation: </strong><a style="color: white;" href = ${island.link}>see at places page</a><br>
                     </div>
                 `;
 
@@ -255,6 +288,14 @@ $(window).on('load', function () {
                 area.addEventListener('click', (event) => {
                     event.stopPropagation(); // make sure the click activate only the marker
                     const popup = area.querySelector('.island-popup');
+
+                    // reset all markers z-index
+                    document.querySelectorAll('.marker, .cluster-marker, .island-area').forEach(el => {
+                        el.style.zIndex = '';
+                    });
+                    
+                    // raise this island above all others
+                    //area.style.zIndex = 100;
 
                     // close all other popups
                     document.querySelectorAll('.island-popup, .info-popup, .cluster-menu').forEach(p => {
@@ -334,7 +375,7 @@ $(window).on('load', function () {
             }, 100);
 
             // Open this item's popup (close all others first)
-            if (item.element) {
+            if (item.element && !item.triggerPopup) {
                 document.querySelectorAll('.info-popup, .island-popup').forEach(p => p.style.display = 'none');
                 const popup = item.element.querySelector('.info-popup, .island-popup');
                 if (popup) popup.style.display = 'block';
@@ -343,16 +384,16 @@ $(window).on('load', function () {
     }
 
 
-// calls the generic search func
-initSearch(allMapData, function(selectedItem) {
-    jumpToLocation(selectedItem);
-    
-    setTimeout(() => { 
-        if (selectedItem.triggerPopup) {
-            selectedItem.triggerPopup();
-        }
-    }, 50);
-});
+    // calls the generic search func
+    initSearch(allMapData, function(selectedItem) {
+        jumpToLocation(selectedItem);
+        
+        setTimeout(() => { 
+            if (selectedItem.triggerPopup) {
+                selectedItem.triggerPopup();
+            }
+        }, 50);
+    });
 
 
     $(document).on('click', function (event) {

@@ -9,7 +9,6 @@
         "condition": "Strong!",
         "last_seen_manga": "Chapter 1180 (latest)",
         "last_seen_anime": "Episode 1158 (latest)",
-        "link": "characters.html",
         "info": "Monkey D. Luffy, commonly known as \"Straw Hat Luffy\" or simply \"Straw Hat\", is the founder and captain of the Straw Hat Pirates. He pursues the legendary treasure of the late Gol D. Roger in order to become the new Pirate King and reach a further, untold dream (currently known to only his crew, family and closest friends). He believes that being the Pirate King means having the most freedom in the world."
     },
     {
@@ -22,7 +21,6 @@
         "condition": "Strong!",
         "last_seen_manga": "Chapter 1180 (latest)",
         "last_seen_anime": "Episode 1158 (latest)",
-        "link": "characters.html",
         "info": "Roronoa Zoro, also known as \"Pirate Hunter\" Zoro, is the master swordsman (剣豪, kengō?) and combatant of the Straw Hat Pirates, one of the Senior Officers of the Straw Hat Grand Fleet, and is publicly recognized as the right-hand man and number two of his crew's captain, Monkey D. Luffy. Formerly a bounty hunter, he is the second member of Luffy's crew and the first to join it, doing so in the Romance Dawn Arc."
     },
     {
@@ -35,7 +33,6 @@
         "condition": "Strong!",
         "last_seen_manga": "Chapter 1180 (latest)",
         "last_seen_anime": "Episode 1158 (latest)",
-        "link": "characters.html",
         "info": "\"God\" Usopp is the sniper of the Straw Hat Pirates and one of the Senior Officers of the Straw Hat Grand Fleet. He is the fourth member of the crew and the third to join, doing so at the end of the Syrup Village Arc. Although he left the crew during the Water 7 Arc, he rejoined at the end of the Post-Enies Lobby Arc."
     },
     {
@@ -48,7 +45,6 @@
         "condition": "Strong!",
         "last_seen_manga": "Chapter 1180 (latest)",
         "last_seen_anime": "Episode 1158 (latest)",
-        "link": "characters.html",
         "info": "\"Black Leg\" Sanji is the cook of the Straw Hat Pirates and one of the Senior Officers of the Straw Hat Grand Fleet. He is the fifth member of the crew and the fourth to join, doing so at the end of the Baratie Arc."
     },
     {
@@ -61,7 +57,6 @@
         "condition": "Strong!",
         "last_seen_manga": "Chapter 1180 (latest)",
         "last_seen_anime": "Episode 1158 (latest)",
-        "link": "characters.html",
         "info": "\"Cat Burglar\" Nami is the navigator of the Straw Hat Pirates and one of the Senior Officers of the Straw Hat Grand Fleet. She is the third member of the crew and the second to join, doing so during the Orange Town Arc. She is the adoptive sister of Nojiko after the two were orphaned and taken in by Bell-mère."
     },
     {
@@ -74,7 +69,6 @@
         "condition": "Strong!",
         "last_seen_manga": "Chapter 1180 (latest)",
         "last_seen_anime": "Episode 1158 (latest)",
-        "link": "characters.html",
         "info": "Nico Robin, also known by her epithet \"Devil Child\" and the \"Light of the Revolution\", is the archaeologist of the Straw Hat Pirates and one of the Senior Officers of the Straw Hat Grand Fleet. She is the seventh member of the crew and the sixth to join, doing so at the end of the Arabasta Arc. She temporarily left the crew during the Water 7 Arc but rejoined during the Enies Lobby Arc."
     },
     {
@@ -87,7 +81,6 @@
         "condition": "Strong!",
         "last_seen_manga": "Chapter 1180 (latest)",
         "last_seen_anime": "Episode 1158 (latest)",
-        "link": "characters.html",
         "info": "Tony Tony Chopper, also known as \"Cotton Candy Lover\" Chopper, is the doctor of the Straw Hat Pirates and one of the Senior Officers of the Straw Hat Grand Fleet. He is the sixth member of the crew and the fifth to join, doing so at the end of the Drum Island Arc. He was temporarily forced to join the Foxy Pirates during the Long Ring Long Land Arc but was quickly returned to Luffy's crew."
     },
     {
@@ -100,8 +93,7 @@
         "condition": "Strong!",
         "last_seen_manga": "Chapter 1180 (latest)",
         "last_seen_anime": "Episode 1158 (latest)",
-        "link": "characters.html",
-"info": ""
+       "info": ""
     },
     {
         "name": "Brook",
@@ -113,8 +105,7 @@
         "condition": "Strong!",
         "last_seen_manga": "Chapter 1180 (latest)",
         "last_seen_anime": "Episode 1158 (latest)",
-        "link": "characters.html",
-"info": ""
+       "info": ""
     },
     {
         "name": "Jinbe",
@@ -126,8 +117,7 @@
         "condition": "Strong!",
         "last_seen_manga": "Chapter 1180 (latest)",
         "last_seen_anime": "Episode 1158 (latest)",
-        "link": "characters.html",
-"info": ""
+       "info": ""
     },
     {
         "name": "Kouzuki Momonosuke",
@@ -139,8 +129,7 @@
         "condition": "Healthy",
         "last_seen_manga": "Chapter 1057",
         "last_seen_anime": "Episode 1085",
-        "link": "characters.html",
-"info": ""
+       "info": ""
     },
     {
         "name": "Carrot",
@@ -152,8 +141,7 @@
         "condition": "Healthy",
         "last_seen_manga": "Chapter 1115",
         "last_seen_anime": "Episode 1149",
-        "link": "characters.html",
-"info": ""
+       "info": ""
     },
     {
         "name": "Perona",
@@ -165,8 +153,7 @@
         "condition": "Healthy",
         "last_seen_manga": "Chapter 1080",
         "last_seen_anime": "Episode 1114",
-        "link": "characters.html",
-"info": ""    
+       "info": ""    
     },
     {
         "name": "Nojiko",
@@ -178,8 +165,7 @@
         "condition": "Healthy",
         "last_seen_manga": "Chapter 1115",
         "last_seen_anime": "Episode 1149",
-        "link": "characters.html",
-"info": ""
+       "info": ""
     },
     {
         "name": "Zeff",
@@ -191,8 +177,7 @@
         "condition": "Physically stable",
         "last_seen_manga": "Chapter 1120",
         "last_seen_anime": "Episode 1152",
-        "link": "characters.html",
-"info": ""
+       "info": ""
     },
     {
         "name": "Makino",
@@ -204,8 +189,7 @@
         "condition": "Healthy",
         "last_seen_manga": "Chapter 1089",
         "last_seen_anime": "Episode 1123",
-        "link": "characters.html",
-"info": ""
+       "info": ""
     },
     {
         "name": "Laboon",
@@ -217,7 +201,6 @@
         "condition": "patient...",
         "last_seen_manga": "Chapter 102",
         "last_seen_anime": "Episode 63",
-        "link": "characters.html",
-"info": ""
+       "info": ""
     }
 ]

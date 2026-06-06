@@ -4,13 +4,12 @@
         "image": "images/Elbaf.png",
         "top": 46.5,
         "left": 35.75,
-        "width": 100,
-        "height": 200,
+        "width": 260,
+        "height": 230,
         "ruler": "No Ruler",
         "arc": "Elbaph Arc",
         "chapters": "1126-",
-        "episodes": "1156-",
-        "link": "places.html"
+        "episodes": "1156-"
     },
     {
         "name": "Egghead",
@@ -22,84 +21,102 @@
         "ruler": "World Government",
         "arc": "Egghead Arc",
         "chapters": "1058-1125, 68 chapters",
-        "episodes": "1086-1155, 70 episodes",
-        "link": "places.html"
+        "episodes": "1086-1155, 70 episodes"
     },
     {
         "name": "Wano Country",
         "image": "images/Wano.png",
         "top": 44,
         "left": 31,
-        "width": 150,
-        "height": 150,
+        "width": 250,
+        "height": 170,
         "ruler": "Kouzuki Momonosuke",
         "arc": "Wano Country Arc",
         "chapters": "909-1057, 149 chapters",
-        "episodes": "890-894, 897-906, 908-1028 and 1031-1085, 191 episodes",
-        "link": "places.html"
+        "episodes": "890-894, 897-906, 908-1028 and 1031-1085, 191 episodes"
     },
     {
         "name": "Zou",
         "image": "images/Zou.png",
         "top": 53.6,
         "left": 25.6,
-        "width": 150,
+        "width": 120,
         "height": 150,
         "ruler": "Carrot",
         "arc": "Zou Arc",
         "chapters": "802-824, 23 chapters",
-        "episodes": "751-779, 29 episodes",
-        "link": "places.html"
+        "episodes": "751-779, 29 episodes"
     },
     {
         "name": "Whole Cake Island",
         "image": "images/WholeCake.png",
         "top": 47.4,
         "left": 22.6,
-        "width": 150,
-        "height": 150,
+        "width": 80,
+        "height": 80,
         "ruler": "Big Mom",
         "arc": "Whole Cake Island Arc",
         "chapters": "825-902, 78 chapters",
-        "episodes": "783-877, 95 episodes",
-        "link": "places.html"
+        "episodes": "783-877, 95 episodes"
     },
     {
         "name": "Dressrosa",
         "image": "images/Dressrosa.png",
         "top": 52,
-        "left": 15,
-        "width": 60,
-        "height": 60,
+        "left": 15.1,
+        "width": 110,
+        "height": 110,
         "ruler": "King Riku Doldo III",
         "arc": "Dressrosa Arc",
         "chapters": "700-801, 102 chapters",
-        "episodes": "629-746, 118 episodes",
-        "link": "places.html"
+        "episodes": "629-746, 118 episodes"
     },
     {
         "name": "Punk Hazard",
         "image": "images/PunkHazard.png",
         "top": 54.6,
         "left": 6.4,
-        "width": 150,
-        "height": 150,
+        "width": 80,
+        "height": 80,
         "ruler": "World Government",
         "arc": "Punk Hazard Arc",
         "chapters": "654-699, 46 chapters",
-        "episodes": "579-589 and 591-625, 46 episodes",
-        "link": "places.html"
+        "episodes": "579-589 and 591-625, 46 episodes"
     },
     {
         "name": "The Holy Land Mary Geoise",
+        "image": "images/MaryGeoise.png",
         "top": 49.7,
-        "left": 1.2,
-        "width": 150,
+        "left": 1.35,
+        "width": 200,
         "height": 150,
         "ruler": "World Government",
         "arc": "Levely Arc (and other)",
         "chapters": "Levely Arc: 903-908, 6 chapters",
-        "episodes": "Levely Arc: 878-889, 12 episodes",
-        "link": "places.html"
+        "episodes": "Levely Arc: 878-889, 12 episodes"
+    },
+    {
+        "name": "Fish-Man Island",
+        "image": "images/FishMan.png",
+        "top": 50,
+        "left": 98,
+        "width": 250,
+        "height": 120,
+        "ruler": "Ryugu Kingdom",
+        "arc": "Fish-Man Island Arc",
+        "chapters": "603-653, 51 chapters",
+        "episodes": "523-541 and 543-574, 51 episodes"
+    },
+    {
+        "name": "Marineford",
+        "image": "images/Marineford.png",
+        "top": 55,
+        "left": 95,
+        "width": 130,
+        "height": 130,
+        "ruler": "World Government",
+        "arc": "Marineford Arc",
+        "chapters": "550-580, 31 chapters",
+        "episodes": "457-489, 33 episodes"
     }
 ]
