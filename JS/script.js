@@ -246,80 +246,72 @@ $(window).on('load', function () {
     /* ----- island markers ----- */
 
     fetch('data/islands.json')
-        .then(response => response.json()) // converts the text to json
-        .then(islands => {
-            islands.forEach(island => {
-                const area = document.createElement('div');
+    .then(response => response.json())
+    .then(islands => {
+        islands.forEach(island => {
+
+            // create the clickable area of the island
+            const area = document.createElement('div');
+            area.classList.add('island-area');
+            area.style.top = island.top + '%';
+            area.style.left = island.left + '%';
+            area.style.width = island.width + 'px';
+            area.style.height = island.height + 'px';
+            mapContainer.appendChild(area);
+
+            // adds a code name to fix popups that close to edges of the map
+            let popupFix = "";
+            if (parseFloat(island.left) < 5) {
+                popupFix = "align-left";
+            } else if (parseFloat(island.left) > 95) {
+                popupFix = "align-right";
+            } else if (parseFloat(island.top) < 10) {
+                popupFix = "align-top";
+            }
+
+            // create anchor for popup positioning
+            const anchor = document.createElement('div');
+            anchor.style.position = 'absolute';
+            anchor.style.top = island.top + '%';
+            anchor.style.left = island.left + '%';
+            anchor.style.width = '0';
+            anchor.style.height = '0';
+            anchor.style.pointerEvents = 'none';
+
+            // creats the inner HTML for each island popup
+            const popup = document.createElement('div');
+            popup.className = `island-popup ${popupFix}`;
+            popup.style.marginBottom = (parseFloat(island.height) * 0.6) + 'px';
+            popup.style.pointerEvents = 'all';
+            popup.innerHTML = `
+                <h3>${island.name}</h3>
+                <strong>Ruler: </strong>${island.ruler}<br>
+                <strong>Arc: </strong>${island.arc}<br>
+                <strong>Chapters: </strong>${island.chapters}<br>
+            `;
+
+            // adds the marker to the map
+            anchor.appendChild(popup);
+            mapContainer.appendChild(anchor);
+
+            // listening to click on the markers in order to open it
+            area.addEventListener('click', (event) => {
+                event.stopPropagation(); // make sure the click activate only the marker
                 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                
-                //להחזיר / למחוק כדי להעלים / לשים
-                area.classList.add('island-area');
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////               
-                // set the place and the size of the island in the map
-                area.style.top = island.top + '%';
-                area.style.left = island.left + '%';
-                area.style.width = island.width + 'px';
-                area.style.height = island.height + 'px';
-
-                // ads a code name to fix popups that close to edges of the map
-                let popupFix = "";
-
-                if (parseFloat(island.left) < 5) {
-                    popupFix = "align-left";
-                } else if (parseFloat(island.left) > 95) {
-                    popupFix = "align-right";
-                } else if (parseFloat(island.top) < 10) {
-                    popupFix = "align-top";
-                }
-
-                // creats the inner HTML for each island
-                area.innerHTML = `
-                    <div class="island-popup ${popupFix}">
-                        <h3>${island.name}</h3>
-                        <strong>Ruler: </strong>${island.ruler}<br>
-                        <strong>Arc: </strong>${island.arc}<br>
-                        <strong>Chapters: </strong>${island.chapters}<br>
-                    </div>
-                `;
-
-                // listening to click on the markers in order to open it
-                area.addEventListener('click', (event) => {
-                    event.stopPropagation(); // make sure the click activate only the marker
-                    const popup = area.querySelector('.island-popup');
-
-                    // reset all markers z-index
-                    document.querySelectorAll('.marker, .cluster-marker, .island-area').forEach(el => {
-                        el.style.zIndex = '';
-                    });
-                    
-                    // raise this island above all others
-                    //area.style.zIndex = 100;
-
-                    // close all other popups
-                    document.querySelectorAll('.island-popup, .info-popup, .cluster-menu').forEach(p => {
-                        if (p !== popup) {
-                            p.style.display = 'none';
-                        }
-                    });
-
-                    // returns the number of a cluster if it was open
-                    document.querySelectorAll('.cluster-display').forEach(display => {
-                        if (display.dataset.count) {
-                            display.innerHTML = display.dataset.count; // take the number from the memory
-                        }
-                    });
-                            
-                    // open and close the current popup
-                    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+                // close all other popups
+                document.querySelectorAll('.island-popup, .info-popup, .cluster-menu').forEach(p => {
+                    if (p !== popup) p.style.display = 'none';
                 });
 
-                mapContainer.appendChild(area); // adds the marker to the map
-                island.element = area; // adds the marker created to the island data
-
+                // open and close the current popup
+                popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
             });
-            
+
+            // adds the marker created to the island data
+            island.element = area;
+            island.popupElement = popup;
+        });
+        
         allMapData.push(...islands); // pushes the new data into the arr
     })
     .catch(error => console.error('Error loading islands:', error));
@@ -377,12 +369,18 @@ $(window).on('load', function () {
             // Open this item's popup (close all others first)
             if (item.element && !item.triggerPopup) {
                 document.querySelectorAll('.info-popup, .island-popup').forEach(p => p.style.display = 'none');
-                const popup = item.element.querySelector('.info-popup, .island-popup');
-                if (popup) popup.style.display = 'block';
+                
+                // check for an island pop up(sits in an anchor div)
+                if (item.popupElement) {
+                    item.popupElement.style.display = 'block';
+                // check for a character pop up
+                } else {
+                    const popup = item.element.querySelector('.info-popup, .island-popup');
+                    if (popup) popup.style.display = 'block';
+                }
             }
         }, 50);
     }
-
 
     // calls the generic search func
     initSearch(allMapData, function(selectedItem) {
@@ -395,15 +393,12 @@ $(window).on('load', function () {
         }, 50);
     });
 
-
     $(document).on('click', function (event) {
         if (!$(event.target).closest('#search').length) {
             $('#search-results').hide(); // close search results when clicking outside the search bar
             $('#search').removeClass('active'); 
         }
     });
-
-
     
 
 /////////////////////////////////////////////////////////////////////////////////////

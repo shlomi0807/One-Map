@@ -93,7 +93,7 @@
         "condition": "Strong!",
         "last_seen_manga": "Chapter 1180 (latest)",
         "last_seen_anime": "Episode 1158 (latest)",
-       "info": ""
+        "info": "\"Iron Man\" Franky is the shipwright of the Straw Hat Pirates and one of the Senior Officers of the Straw Hat Grand Fleet. He is the crew's eighth member and the seventh to join, doing so at the end of the Post-Enies Lobby Arc."
     },
     {
         "name": "Brook",
@@ -105,7 +105,7 @@
         "condition": "Strong!",
         "last_seen_manga": "Chapter 1180 (latest)",
         "last_seen_anime": "Episode 1158 (latest)",
-       "info": ""
+        "info": "\"Soul King\" Brook is the musician of the Straw Hat Pirates, one of their two swordsmen, and one of the Senior Officers of the Straw Hat Grand Fleet. He is the ninth member of the crew and the eighth to join, doing so at the end of the Thriller Bark Arc."
     },
     {
         "name": "Jinbe",
@@ -117,7 +117,7 @@
         "condition": "Strong!",
         "last_seen_manga": "Chapter 1180 (latest)",
         "last_seen_anime": "Episode 1158 (latest)",
-       "info": ""
+        "info": "\"Knight of the Sea\" Jinbe is the helmsman of the Straw Hat Pirates and one of the Senior Officers of the Straw Hat Grand Fleet. He is the tenth member of the crew and the ninth to join, doing so during the Wano Country Arc."
     },
     {
         "name": "Kouzuki Momonosuke",
@@ -129,7 +129,7 @@
         "condition": "Healthy",
         "last_seen_manga": "Chapter 1057",
         "last_seen_anime": "Episode 1085",
-       "info": ""
+        "info": "Kouzuki Momonosuke is the current shogun of Wano Country. A member of the Kouzuki Family, he is the son of the late daimyo of Kuri Kouzuki Oden and his wife Toki, the grandson of the former shogun Sukiyaki, and the older brother of Hiyori."
     },
     {
         "name": "Carrot",
@@ -141,7 +141,7 @@
         "condition": "Healthy",
         "last_seen_manga": "Chapter 1115",
         "last_seen_anime": "Episode 1149",
-       "info": ""
+        "info": "Carrot is a rabbit mink, the current ruler of the Mokomo Dukedom, and a former member of the Kingsbirds and Inuarashi Musketeer Squad. She was trained by Pedro, whose will she carries on."
     },
     {
         "name": "Perona",
@@ -153,7 +153,7 @@
         "condition": "Healthy",
         "last_seen_manga": "Chapter 1080",
         "last_seen_anime": "Episode 1114",
-       "info": ""    
+        "info": "\"Ghost Princess\" Perona is a member of the Thriller Bark Pirates and the former commander of the Wild Zombies and Surprise Zombies, prior to Thriller Bark's collapse."    
     },
     {
         "name": "Nojiko",
@@ -165,7 +165,7 @@
         "condition": "Healthy",
         "last_seen_manga": "Chapter 1115",
         "last_seen_anime": "Episode 1149",
-       "info": ""
+        "info": "Nojiko is the owner of a mikan farm in Cocoyasi Village and the adoptive older sister of Nami. They were raised together by their adoptive mother, Bell-mère."
     },
     {
         "name": "Zeff",
@@ -177,7 +177,7 @@
         "condition": "Physically stable",
         "last_seen_manga": "Chapter 1120",
         "last_seen_anime": "Episode 1152",
-       "info": ""
+        "info": "Zeff is the head chef and owner of the Baratie, as well as the adoptive father and mentor of Sanji."
     },
     {
         "name": "Makino",
@@ -189,7 +189,7 @@
         "condition": "Healthy",
         "last_seen_manga": "Chapter 1089",
         "last_seen_anime": "Episode 1123",
-       "info": ""
+        "info": "Makino is the owner and bartender of Partys Bar in Foosha Village, Monkey D. Luffy's home town. She is also the mother of an unknown child."
     },
     {
         "name": "Laboon",
@@ -201,6 +201,6 @@
         "condition": "patient...",
         "last_seen_manga": "Chapter 102",
         "last_seen_anime": "Episode 63",
-       "info": ""
+        "info": "Laboon is an Island Whale the Straw Hat Pirates encounter immediately after entering the Grand Line. He is native to the West Blue and is classified as a Type A creature, \"Big Friendly\", and at the top of both the size and friendliness scale."
     }
 ]

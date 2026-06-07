@@ -118,5 +118,89 @@
         "arc": "Marineford Arc",
         "chapters": "550-580, 31 chapters",
         "episodes": "457-489, 33 episodes"
+    },
+    {
+        "name": "sabaody archipelago",
+        "image": "images/Sabaody.png",
+        "top": 51.4,
+        "left": 94.7,
+        "width": 130,
+        "height": 130,
+        "ruler": "World Government",
+        "arc": "Sabaody Archipelago Arc (Main Arc)",
+        "chapters": "490-513, 24 chapters",
+        "episodes": "385-405, 21 episodes"
+    },
+    {
+        "name": "Impel Down",
+        "image": "images/ImpelDown.png",
+        "top": 59.45,
+        "left": 92.55,
+        "width": 100,
+        "height": 100,
+        "ruler": "World Government",
+        "arc": "Impel Down Arc",
+        "chapters": "525-549, 25 chapters",
+        "episodes": "422-425 and 430-452, 27 episodes"
+    },
+    {
+        "name": "Amazon Lily",
+        "image": "images/AmazonLily.png",
+        "top": 60.2,
+        "left": 89.2,
+        "width": 100,
+        "height": 100,
+        "ruler": "Boa Hancock",
+        "arc": "Amazon Lily Arc",
+        "chapters": "514-524, 11 chapters",
+        "episodes": "408-421, 14 episodes"
+    },
+    {
+        "name": "Thriller Bark",
+        "image": "images/ThrillerBark.png",
+        "top": 49.75,
+        "left": 89.25,
+        "width": 130,
+        "height": 130,
+        "ruler": "Unknown",
+        "arc": "Thriller Bark Arc",
+        "chapters": "442-489, 48 chapters",
+        "episodes": "337-381, 45 episodes"
+    },
+    {
+        "name": "Enies Lobby",
+        "image": "images/EniesLobby.png",
+        "top": 54.8,
+        "left": 89.9,
+        "width": 130,
+        "height": 130,
+        "ruler": "World Government",
+        "arc": "Enies Lobby Arc",
+        "chapters": "375-430, 56 chapters",
+        "episodes": "264-290, 293-302 and 304-312, 46 episodes"
+    },
+    {
+        "name": "Water 7",
+        "image": "images/Water7.png",
+        "top": 51.55,
+        "left": 85.2,
+        "width": 100,
+        "height": 100,
+        "ruler": "Iceburg",
+        "arc": "Water 7 Arc",
+        "chapters": "322-374, 53 chapters",
+        "episodes": "229-263, 35 episodes"
+    },
+    {
+        "name": "Jaya",
+        "image": "images/Jaya.png",
+        "top": 48.9,
+        "left": 72.75,
+        "width": 100,
+        "height": 100,
+        "ruler": "No ruler",
+        "arc": "Jaya Arc",
+        "chapters": "218-236, 19 chapters",
+        "episodes": "144-152, 9 episodes"
     }
 ]
