@@ -17,11 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="flip-card" id="${islandId}">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="${island.image}" alt="${island.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;">
+                            <img src="${island.image}" alt="${island.name}">
                         </div>
                         <div class="flip-card-back">
                             <h1>${island.name}</h1>
                             <p>Ruler: ${island.ruler}</p>
+                            <p>Arc: ${island.arc}</p>
                             <p>Chapters: ${island.chapters}</p>
                         </div>
                     </div>

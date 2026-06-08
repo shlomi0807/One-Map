@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img src="${character.image}" alt="${character.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;">
+                                <img src="${character.image}" alt="${character.name}">
                             </div>
                             <div class="flip-card-back">
                                 <p><strong>Bounty:</strong> ${character.bounty}</p>

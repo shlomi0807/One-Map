@@ -202,5 +202,77 @@
         "last_seen_manga": "Chapter 102",
         "last_seen_anime": "Episode 63",
         "info": "Laboon is an Island Whale the Straw Hat Pirates encounter immediately after entering the Grand Line. He is native to the West Blue and is classified as a Type A creature, \"Big Friendly\", and at the top of both the size and friendliness scale."
+    },
+    {
+        "name": "Charlotte Katakuri",
+        "image": "images/KatakuriHead.png",
+        "top": 47.3,
+        "left": 22.6,
+        "bounty": "1,057,000,000฿",
+        "status": "Calmly watching Vegapunk's broadcast.",
+        "condition": "Healthy",
+        "last_seen_manga": "Chapter 1119",
+        "last_seen_anime": "Episode 1151",
+        "info": "Charlotte Katakuri is the second son and third child of the Charlotte Family and the elder triplet brother of Daifuku and Oven. He is also one of the Three Sweet Commanders of the Big Mom Pirates and serves as Totto Land's Minister of Flour (粉大臣, Kona Daijin?), governing over Komugi Island."
+    },
+    {
+        "name": "Marshall D. Teach",
+        "image": "images/TeachHead.png",
+        "top": 51.8,
+        "left": 37.3,
+        "bounty": "3,996,000,000฿",
+        "status": "Advancing his plans to obtain the One Piece.",
+        "condition": "Very Happy",
+        "last_seen_manga": "Chapter 1126",
+        "last_seen_anime": "Episode 1156",
+        "info": "Marshall D. Teach, most commonly referred to by his epithet \"Blackbeard\", is the admiral of the Blackbeard Pirates, and one of the Four Emperors that rule over the New World. He is the son of the legendary pirate Rocks D. Xebec and his wife Eris, making him a member of the nearly-extinct Davy Family and a descendant of Davy D. Jones, which is only known to a small number of individuals, including his own crew, the Five Elders, and Nerona Imu. He is the only known person in history to wield the powers of two Devil Fruits."
+    },
+    {
+        "name": "Sabo",
+        "image": "images/SaboHead.png",
+        "top": 56.35 ,
+        	"left": 64.3,
+        "bounty": "Unknown",
+        "status": "assessing the situation after Vegapunk’s broadcast.",
+        "condition": "good condition",
+        "last_seen_manga": "Chapter 1125",
+        "last_seen_anime": "Episode 1155",
+        "info": "\"Flame Emperor\" Sabo is the Revolutionary Army's chief of staff, recognized as the No. 2 of the entire organization under Supreme Commander Monkey D. Dragon. He is also the sworn brother of the notorious pirates Monkey D. Luffy and the late Portgas D. Ace."
+    },
+    {
+        "name": "Monkey D. Dragon",
+        "image": "images/DragonHead.png",
+        "top": 56.35 ,
+        	"left": 64.3,
+        "bounty": "Unknown",
+        "status": "Seeking victory before global land conflict begins",
+        "condition": "Determined",
+        "last_seen_manga": "Chapter 1125",
+        "last_seen_anime": "Episode 1155",
+        "info": "Monkey D. Dragon, also known as the \"Rebellious Dragon\", is the supreme commander and founder of the Revolutionary Army (originally the Freedom Fighters). A former Marine, his disgust with the organization's actions in the God Valley Incident, and its brutality in the Ohara Incident led to him forming the Revolutionary Army to oppose the World Government in its entirety. Having campaigned toward its downfall for over thirty years, he is labeled the \"World's Worst Criminal\"."
+    },
+    {
+        "name": "Emporio Ivankov",
+        "image": "images/IvankovHead.png",
+        "top": 56.35 ,
+        "left": 64.3,
+        "bounty": "At least 100,000,000฿",
+        "status": "assessing the situation after Vegapunk’s broadcast.",
+        "condition": "good condition",
+        "last_seen_manga": "Chapter 1125",
+        "last_seen_anime": "Episode 1155",
+        "info": "Emporio Ivankov, or Iva for short, is the queen of the Kamabakka Kingdom, known as \"Okama King\" and a \"Miracle Person\". He is one of the Revolutionary Army's founding members, as well as the commander of the G Army, which covers the Grand Line. A former slave of the World Nobles, he escaped during the Native Hunting Competition on God Valley and was responsible for the God Valley Incident along with Ginny."
+    },
+    {
+        "name": "Koala",
+        "image": "images/KoalaHead.png",
+        "top": 56.35 ,
+        "left": 64.3,
+        "bounty": "Unknown",
+        "status": "assessing the situation after Vegapunk’s broadcast.",
+        "condition": "good condition",
+        "last_seen_manga": "Chapter 1125",
+        "last_seen_anime": "Episode 1155",
+        "info": "Koala is a high ranking officer of the Revolutionary Army, serving as the Fish-Man Karate assistant instructor. She started as a slave on Mary Geoise, but was then set free by Fisher Tiger's rampage. She sailed along with the Sun Pirates to reach her home town. Approximately two years later, she left her family to join the Revolutionary Army, where she often works alongside both Sabo and Hack."
     }
 ]

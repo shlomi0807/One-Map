@@ -104,13 +104,7 @@ $(window).on('load', function () {
                         
                         // function to crate the pop up of a character
                         const openCharacterLogic = () => {
-                            // reset all markers z-index
-                            document.querySelectorAll('.marker, .cluster-marker, .island-area').forEach(el => {
-                                el.style.zIndex = '';
-                            });
                             
-                            // raise this cluster above all others
-                            clusterMarker.style.zIndex = 100;
                             menu.style.display = 'none';
                             display.innerHTML = `<img src="${character.image}" title="${character.name}" class="cluster-active-img">`;
                             activePopup.innerHTML = `
