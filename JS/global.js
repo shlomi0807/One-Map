@@ -1,10 +1,11 @@
 
 // search results and filtering behvior (using JQUERY)
 function initSearch(dataToSearch, onItemSelect) {
+    
     $('#search-input').on('input', function () {
 
-        const inputVal = $(this).val(); // שומר את הערך המקורי
-        sessionStorage.setItem('lastSearch', inputVal); // שמירה ב-SessionStorage
+        const inputVal = $(this).val(); // saves original val in order to save in SS
+        sessionStorage.setItem('lastSearch', inputVal); // SS save
         
         const inputValLower = inputVal.toLowerCase();  // get what the user type and convert to lowercase
         const resultsContainer = $('#search-results');
@@ -49,7 +50,25 @@ function initSearch(dataToSearch, onItemSelect) {
         resultsContainer.show(); // show the dropdown with results
         searchBar.addClass('active');
     });
+    
+    // func to jump to location if user pressed enter
+    $('#search-input').on('keydown', function (e) {
+        if (e.key === 'Enter') { 
+            e.preventDefault();
+            
+            // take the first result
+            const firstResult = $('#search-results a').first();
+            
+            // automatic clicks on the first result if exists
+            if (firstResult.length > 0) {
+                firstResult.trigger('click');
+            }
+        }
+    });
+
 }
+
+
 
 $(document).ready(function() { // wait to finish build the document 
 
