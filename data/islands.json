@@ -264,14 +264,14 @@
         "episodes": "64-67, 4 episodes"
     },
     {
-        "name": " Reverse Mountain",
-        "image": "images/ ReverseMountain.png",
+        "name": "Reverse Mountain",
+        "image": "images/ReverseMountain.png",
         "top": 50.8,
         "left": 49.45,
         "width": 200,
         "height": 200,
         "ruler": "No ruler",
-        "arc": " Reverse Mountain Arc",
+        "arc": "Reverse Mountain Arc",
         "chapters": "101-105, 5 chapters",
         "episodes": "62-63, 2 episodes"
     }
