@@ -1,4 +1,4 @@
-/* grid style */
+/* cards style */
 .cards-grid {
   display: flex;
   flex-direction: column; /* sets character in one column */

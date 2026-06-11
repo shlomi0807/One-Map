@@ -202,5 +202,77 @@
         "arc": "Jaya Arc",
         "chapters": "218-236, 19 chapters",
         "episodes": "144-152, 9 episodes"
+    },
+    {
+        "name": "Skypiea",
+        "image": "images/Skypiea.png",
+        "top": 48,
+        "left": 75.2,
+        "width": 130,
+        "height": 130,
+        "ruler": "Gan Fall",
+        "arc": "Skypiea Arc",
+        "chapters": "237-302, 66 chapters",
+        "episodes": "153-195, 43 episodes"
+    },
+    {
+        "name": "Arabasta",
+        "image": "images/Arabasta.png",
+        "top": 44.9,
+        "left": 68.3,
+        "width": 130,
+        "height": 130,
+        "ruler": "Nefertari Vivi",
+        "arc": "Arabasta Arc",
+        "chapters": "155-217, 63 chapters",
+        "episodes": "92-130, 39 episodes"
+    },
+    {
+        "name": "Drum Island",
+        "image": "images/Drum.png",
+        "top": 45.5,
+        "left": 63.4,
+        "width": 130,
+        "height": 130,
+        "ruler": "Dalton",
+        "arc": " Arc",
+        "chapters": "130-154, 25 chapters",
+        "episodes": "78-91, 14 episodes"
+    },
+    {
+        "name": "Little Garden",
+        "image": "images/LittleGarden.png",
+        "top": 46.2,
+        "left": 60.1,
+        "width": 70,
+        "height": 70,
+        "ruler": "No ruler",
+        "arc": "Little Garden Arc",
+        "chapters": "115-129, 15 chapters",
+        "episodes": "70-77, 8 episodes"
+    },
+    {
+        "name": "Whisky Peak",
+        "image": "images/WhiskyPeak.png",
+        "top": 47.8,
+        "left": 57.25,
+        "width": 70,
+        "height": 70,
+        "ruler": "No ruler",
+        "arc": "Whisky Peak Arc",
+        "chapters": "106-114, 9 chapters",
+        "episodes": "64-67, 4 episodes"
+    },
+    {
+        "name": " Reverse Mountain",
+        "image": "images/ ReverseMountain.png",
+        "top": 50.8,
+        "left": 49.45,
+        "width": 200,
+        "height": 200,
+        "ruler": "No ruler",
+        "arc": " Reverse Mountain Arc",
+        "chapters": "101-105, 5 chapters",
+        "episodes": "62-63, 2 episodes"
     }
 ]

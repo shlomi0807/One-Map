@@ -28,8 +28,10 @@ function initSearch(dataToSearch, onItemSelect) {
         if (filteredData.length === 0) { 
             resultsContainer.append('<a style="color: gray; cursor: default;">No results found</a>');
         } else {
+
+            const limitedResults = filteredData.slice(0, 5); // slice the list to the top 5 results
             // create a clickable link for each matching result
-            filteredData.forEach(item => {
+            limitedResults.forEach(item => {
                 const resultItem = $('<a></a>').text(item.name);
                 
                 resultItem.on('click', function (e) {
@@ -70,7 +72,7 @@ function initSearch(dataToSearch, onItemSelect) {
 
 
 
-$(document).ready(function() { // wait to finish build the document 
+document.addEventListener('DOMContentLoaded', function() { // wait to finish build the document 
 
     const savedSearch = sessionStorage.getItem('lastSearch'); // var to save search item in ss
     
@@ -109,7 +111,7 @@ $(document).ready(function() { // wait to finish build the document
     });
 
     
-    // x button behvior (using JQUERY)   
+    // x button behvior code (using JQUERY)   
     
     const $searchInput = $('#search-input');
     const $clearBtn = $('#clear-btn');

@@ -15,7 +15,7 @@ body {
 
 /* bluring the background image*/
 body::before {
-    content: ''; /* crates an empty element */
+    content: ''; /* creates an empty element */
     position: fixed;
     inset: 0; /* stretches across the screen */
     background: inherit;
@@ -161,14 +161,6 @@ body::before {
     color: rgba(0, 0, 0, 0.5);
 }
 
-#search button {
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: black;
-    font-size: 16px;
-}
 
 #search-input::-webkit-search-cancel-button { /* removing the annoying X mark in search box */
     display: none;
