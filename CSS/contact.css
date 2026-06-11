@@ -23,10 +23,8 @@
     color: black;
 }
 
-/* overriding bootstrap default inputs style */
+
 .custom-input {
-    border: 1px solid #ccc;
-    border-radius: 4px;
     resize: none;
 }
 
@@ -61,7 +59,7 @@
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.6);
-    z-index: 1000;
+    z-index: 100;
     justify-content: center;
     align-items: center;
 }

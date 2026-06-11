@@ -63,6 +63,33 @@ select.addEventListener('change', function () {
     }
 });
 
+
+// sets a custom invalid message of email address
+emailInput.addEventListener('invalid', function() {
+    this.setCustomValidity('Please enter a valid email address');
+});
+emailInput.addEventListener('input', function() {
+
+    this.setCustomValidity(''); // resets the error so the browser check it again
+});
+
+// sets a custom invalid message when user didnt choose a type of request
+reqTypeSelect.addEventListener('invalid', function() {
+    this.setCustomValidity('Please choose a type of request');
+});
+reqTypeSelect.addEventListener('change', function() {
+    this.setCustomValidity(''); 
+});
+
+// sets a custom invalid message if textarea is empty
+subjectInput.addEventListener('invalid', function() {
+    this.setCustomValidity('Please enter a subject');
+});
+subjectInput.addEventListener('input', function() {
+    this.setCustomValidity(''); 
+});
+
+
 // message for reaching max characters in text box 
 
 const textarea = document.getElementById('subject');

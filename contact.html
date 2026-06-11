@@ -38,14 +38,12 @@
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" id="email" name="email" class="form-control custom-input" placeholder="Your email.." pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" 
-                            oninvalid="this.setCustomValidity('Please enter a valid email address')" oninput="this.setCustomValidity('')">
+                        <input type="email" id="email" name="email" class="form-control custom-input" placeholder="Your email.." pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
                     </div>
 
                     <div class="mb-3">
                         <label for="reqtype" class="form-label">Type of Request *</label>
-                        <select id="reqtype" name="reqtype" class="form-select custom-input" required
-                        oninvalid="this.setCustomValidity('Please choose a type of request')" oninput="this.setCustomValidity('')">
+                        <select id="reqtype" name="reqtype" class="form-select custom-input" required>
                             <option value="" disabled selected>choose one..</option>
                             <option value="bugrep">Bug Report</option>
                             <option value="suggestion">Feature Suggestion</option>
@@ -61,8 +59,7 @@
                             <span>Subject *</span>
                             <span id="char-warning" class="warning-text mb-0 text-end">You have reached the maximum character limit.</span>
                         </label>
-                        <textarea id="subject" name="subject" class="form-control custom-input" placeholder="Write something.." style="height:200px" maxlength="1000" required
-                            oninvalid="this.setCustomValidity('Please enter a subject')" oninput="this.setCustomValidity('')"></textarea>
+                        <textarea id="subject" name="subject" class="form-control custom-input" placeholder="Write something.." style="height:200px" maxlength="1000" required></textarea>
                     </div>
                 
                     <button type="submit" class="btn w-100 custom-submit">Submit</button>
