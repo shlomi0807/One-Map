@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Piece Wordle</title>
+    <link rel="icon" href="images/one-map-logo.png">
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/wordle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+    <div id="page-overlay"></div>
+    <span style="font-size:30px;cursor:pointer" id="open-nav-btn">&#9776;</span>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" id="close-nav-btn">&times;</a>
+        <a href="index.html" id="Map-nav"><i class="fa fa-map-o"></i> Map</a>
+        <a href="characters.html" id="characters"><img src="images/characters-icon.png" class="characters-icon"> characters</a>
+        <a href="places.html" id="Places"><i class="fa fa-map-marker"></i> Places</a>
+        <a href="wordle.html" id="wordle-nav"><i class="fa fa-gamepad"></i> Wordle</a>
+        <a href="contact.html" id="contact"><i class="fa fa-fw fa-envelope"></i> Contact us</a>
+    </div>
+
+    <main class="wordle-container">
+        <div class="info-box">
+            <h1>One Piece Wordle 🏴‍☠️</h1>
+            <p>Guess the character's name in 6 tries! <br>
+            Enter letters into the tiles and click "Check".</p>
+        </div>
+
+        <div class="difficulty-selectors">
+            <button class="diff-btn active" data-level="easy">Easy</button>
+            <button class="diff-btn" data-level="medium">Medium</button>
+            <button class="diff-btn" data-level="hard">Hard</button>
+        </div>
+
+        <div id="guess-history" class="wordle-grid"></div>
+
+        <div class="wordle-grid">
+            <div id="active-guess" class="wordle-row">
+                </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="check-btn" class="check-button">Check</button>
+            <button id="hint-btn" class="hint-button" title="Get the first letter!">Hint 💡</button>
+        </div>
+        
+        <div id="game-message" style="display: none; text-align: center; font-size: 24px; font-weight: bold; color: white; margin-top: 10px;"></div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="JS/global.js"></script>
+    <script src="JS/wordle.js"></script>
+</body>
+</html>

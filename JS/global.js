@@ -19,7 +19,7 @@ function initSearch(dataToSearch, onItemSelect) {
             return;
         }
 
-        // filter allMapData depending on what the user typed
+        // filter Data depending on what the user typed
         const filteredData = dataToSearch.filter(item =>
             item.name.toLowerCase().includes(inputValLower)
         );
@@ -53,7 +53,7 @@ function initSearch(dataToSearch, onItemSelect) {
         searchBar.addClass('active');
     });
     
-    // func to jump to location if user pressed enter
+    // func to activate search if user pressed enter
     $('#search-input').on('keydown', function (e) {
         if (e.key === 'Enter') { 
             e.preventDefault();
